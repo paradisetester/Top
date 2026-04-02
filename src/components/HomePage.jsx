@@ -504,13 +504,30 @@ export default function HomePage() {
                 <img src={LogoMain} alt="TOP" className="logo-img h-8 mb-6 opacity-80" />
                 <p className="text-gray-600 text-sm leading-relaxed max-w-xs">The operating system for athletes who refuse to be average. Mind. Body. Social. System.</p>
               </div>
-              <div>
+              
+
+              <div className="flex gap-15 block md:hidden">
+                <div>
                 <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">NAVIGATE</h4>
                 <div className="flex flex-col space-y-3">
                   {['System', 'Pillars', 'Programs'].map((l) => (<a key={l} href={`#${l.toLowerCase()}`} className="text-gray-600 hover:text-[#D4FF00] text-sm transition-colors">{l}</a>))}
                 </div>
               </div>
               <div>
+                <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">CONNECT</h4>
+                <div className="flex flex-col space-y-3">
+                  {['Instagram', 'Twitter/X', 'TikTok'].map((s) => (<a key={s} href="#" className="text-gray-600 hover:text-[#D4FF00] text-sm transition-colors">{s}</a>))}
+                </div>
+              </div>
+              </div>
+              <div className='hidden md:block'>
+                <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">NAVIGATE</h4>
+                <div className="flex flex-col space-y-3">
+                  {['System', 'Pillars', 'Programs'].map((l) => (<a key={l} href={`#${l.toLowerCase()}`} className="text-gray-600 hover:text-[#D4FF00] text-sm transition-colors">{l}</a>))}
+                </div>
+              </div>
+
+                <div className='hidden md:block'>
                 <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">CONNECT</h4>
                 <div className="flex flex-col space-y-3">
                   {['Instagram', 'Twitter/X', 'TikTok'].map((s) => (<a key={s} href="#" className="text-gray-600 hover:text-[#D4FF00] text-sm transition-colors">{s}</a>))}
