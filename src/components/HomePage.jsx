@@ -135,41 +135,89 @@ export default function HomePage() {
         <div className="fixed w-[500px] h-[500px] rounded-full pointer-events-none z-[60] opacity-[0.03] mix-blend-screen"
           style={{ background: 'radial-gradient(circle, #D4FF00 0%, transparent 70%)', left: cursorGlow.x - 250, top: cursorGlow.y - 250, transition: 'left 0.3s ease-out, top 0.3s ease-out' }} />
 
-        {/* NAVBAR */}
-        <motion.nav initial={{ y: -100 }} animate={isLoaded ? { y: 0 } : {}} transition={{ duration: 0.8, ease: 'circOut', delay: 0.1 }}
-          className="fixed top-0 left-0 w-full bg-[#0A0A0A]/80 backdrop-blur-xl border-b border-white/5 z-50">
+
+        <motion.nav
+          initial={{ y: -100 }}
+          animate={isLoaded ? { y: 0 } : {}}
+          transition={{ duration: 0.8, ease: "circOut", delay: 0.1 }}
+          className="fixed top-0 left-0 w-full bg-[#0A0A0A]/80 backdrop-blur-xl border-b border-white/5 z-50"
+        >
           <div className="max-w-7xl mx-auto px-6 h-20 grid grid-cols-2 md:grid-cols-3 items-center">
             {/* Logo Column */}
             <div className="flex items-center gap-3">
               <img src={LogoIcon} alt="TOP" className="logo-img h-8 cursor-pointer" />
-              <span className="font-oswald text-2xl font-black tracking-tighter" >TOP</span>
+              <span className="font-oswald text-2xl font-black tracking-tighter">TOP</span>
             </div>
 
-            {/* Nav Links Column (Centered) */}
+            {/* Nav Links Column (Desktop Only) */}
             <div className="hidden md:flex justify-center space-x-12 font-oswald text-xs tracking-[0.25em] text-gray-500">
-              {['SYSTEM', 'PILLARS', 'PROGRAMS'].map((l) => (
-                <a key={l} href={`#${l.toLowerCase()}`} className="relative py-2 hover:text-white transition-colors group">
-                  {l}<span className="absolute bottom-0 left-0 w-0 h-px bg-[#D4FF00] group-hover:w-full transition-all duration-300" />
+              {["SYSTEM", "PILLARS", "PROGRAMS"].map((l) => (
+                <a
+                  key={l}
+                  href={`#${l.toLowerCase()}`}
+                  className="relative py-2 hover:text-white transition-colors group"
+                >
+                  {l}
+                  <span className="absolute bottom-0 left-0 w-0 h-px bg-[#D4FF00] group-hover:w-full transition-all duration-300" />
                 </a>
               ))}
             </div>
 
             {/* Right Actions Column */}
             <div className="flex items-center justify-end gap-6">
+              {/* Desktop ENTER Button */}
               <button className="relative px-8 py-3 font-oswald text-xs tracking-[0.2em] text-[#D4FF00] border border-[#D4FF00]/30 overflow-hidden group hover:shadow-[0_0_20px_rgba(212,255,0,0.15)] transition-all duration-500 hidden md:block">
-                <span className="relative z-10 group-hover:text-black transition-colors duration-300">ENTER</span>
+                <span className="relative z-10 group-hover:text-black transition-colors duration-300">
+                  ENTER
+                </span>
                 <div className="absolute inset-0 bg-[#D4FF00] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </button>
-              <button className="md:hidden text-white hover:text-[#D4FF00]" onClick={() => setMenuOpen(!menuOpen)}>
+
+              {/* Mobile Hamburger */}
+              <button
+                className="md:hidden text-white hover:text-[#D4FF00]"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="square" strokeWidth="2" d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+                  <path
+                    strokeLinecap="square"
+                    strokeWidth="2"
+                    d={
+                      menuOpen
+                        ? "M6 18L18 6M6 6l12 12" // X icon
+                        : "M4 6h16M4 12h16M4 18h16" // hamburger
+                    }
+                  />
                 </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu */}
+          <div
+            className={`md:hidden fixed top-20 left-0 w-full bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-white/5 z-40 transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+              }`}
+          >
+            <div className="flex flex-col items-center py-6 space-y-6 font-oswald text-lg text-gray-300">
+              {["SYSTEM", "PILLARS", "PROGRAMS"].map((l) => (
+                <a
+                  key={l}
+                  href={`#${l.toLowerCase()}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-[#D4FF00] transition-colors"
+                >
+                  {l}
+                </a>
+              ))}
+              <button className="px-6 py-3 font-oswald text-xs tracking-[0.2em] text-[#D4FF00] border border-[#D4FF00]/30 hover:shadow-[0_0_20px_rgba(212,255,0,0.15)] transition-all duration-300">
+                ENTER
               </button>
             </div>
           </div>
         </motion.nav>
 
         {/* HERO */}
+
         <section className="relative h-screen flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden">
           <motion.div style={{ scale: bgScale }} className="absolute inset-0 z-0 bg-[#0A0A0A]">
             <AnimatePresence mode="sync">
@@ -189,7 +237,7 @@ export default function HomePage() {
               </motion.p>
               <motion.h1 initial={{ opacity: 0, clipPath: 'inset(100% 0 0 0)' }} animate={{ opacity: 1, clipPath: 'inset(0% 0 0 0)' }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="font-oswald font-black text-5xl md:text-[140px] leading-[0.95] tracking-tighter mb-6 whitespace-nowrap">
+                className="font-oswald font-black text-5xl md:text-[100px] leading-[0.95] tracking-tighter mb-6 whitespace-nowrap">
                 ALL OR NOTHING
               </motion.h1>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="flex flex-col items-center gap-6">
@@ -218,7 +266,7 @@ export default function HomePage() {
         </section>
 
         {/* ATHLETE INTAKE MODULE */}
-        <section id="system" className="relative py-20 md:py-28 px-6 bg-[#0A0A0A] border-y border-white/5 overflow-hidden">
+        <section id="system" className="relative py-20 md:py-20 lg:py-28 px-6 bg-[#0A0A0A] border-y border-white/5 overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
           <div className="max-w-3xl mx-auto relative z-10">
             <div className="text-center mb-12">
@@ -278,10 +326,10 @@ export default function HomePage() {
         </motion.section>
 
         {/* MISSION */}
-        <section className="py-32 md:py-40 px-6 md:px-12 bg-[#0A0A0A] relative overflow-hidden">
+        <section className="py-20 sm:py-20 md:py-40 px-6 md:px-12 bg-[#0A0A0A] relative overflow-hidden">
           <div className="max-w-4xl mx-auto">
             <p className="gsap-reveal font-mono text-[#D4FF00] mb-10 text-[10px] tracking-[0.4em]"><ScrambleText text="[ 01 — THE PROTOCOL ]" delay={200} /></p>
-            <h2 className="gsap-reveal font-oswald font-bold text-4xl md:text-7xl leading-[1.05] mb-8">WE DON'T SELL TRAINING.<br />WE INSTALL OPERATING SYSTEMS.</h2>
+            <h2 className="gsap-reveal font-oswald font-bold text-4xl md:text-6xl leading-[1.05] mb-8">WE DON'T SELL TRAINING.<br />WE INSTALL OPERATING SYSTEMS.</h2>
             <div className="gsap-line w-16 h-px bg-[#D4FF00]/40 mb-12" />
             <p className="gsap-reveal text-gray-400 text-lg md:text-xl max-w-2xl leading-relaxed">
               TOP is not a workout program. It's a complete performance architecture for your mind, body, and social identity — designed by pro athletes and psychologists for the next generation of elite operators. From your first day of operation to your first championship, we engineer the systems that make you unstoppable.
@@ -296,7 +344,7 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A]/60 z-10" />
             <div className="absolute inset-0 z-20 flex items-center justify-center">
               <div className="text-center max-w-4xl px-6">
-                <h2 className="gsap-scale-text font-oswald font-black text-5xl md:text-[100px] leading-[0.9] tracking-tighter mb-6">YOUR MIND<br />IS THE MACHINE.</h2>
+                <h2 className="gsap-scale-text font-oswald font-black text-4xl md:text-[75px] leading-[1] tracking-tighter mb-6">YOUR MIND<br />IS THE MACHINE.</h2>
                 <p className="gsap-reveal text-gray-400 text-lg max-w-md mx-auto">We don't just prepare athletes. We engineer the mental systems behind every win.</p>
               </div>
             </div>
@@ -304,10 +352,10 @@ export default function HomePage() {
         </section>
 
         {/* YOUR FIRST OPERATING SYSTEM (reframed youth section) */}
-        <section className="py-32 md:py-40 px-6 md:px-12 bg-[#0e0e0e] relative overflow-hidden">
+        <section className="py-20 sm:py-20 lg:py-40 px-6 md:px-12 bg-[#0e0e0e] relative overflow-hidden">
           <div className="max-w-6xl mx-auto mb-20">
             <p className="gsap-reveal font-mono text-gray-600 mb-4 text-[10px] tracking-[0.4em]"><ScrambleText text="[ 01.B — FIRST INSTALL ]" delay={200} /></p>
-            <h2 className="gsap-reveal font-oswald text-5xl md:text-7xl font-bold mb-6">YOUR ELITE<br />OPERATING SYSTEM.</h2>
+            <h2 className="gsap-reveal font-oswald text-4xl sn:text-5xl md:text-6xl font-bold mb-6">YOUR ELITE<br class="hidden sm:inline" />OPERATING SYSTEM.</h2>
             <p className="gsap-reveal text-gray-400 max-w-xl text-lg leading-relaxed">
               The best operators didn't wait. They installed their systems early and upgraded every year. TOP is built for those who demand elite performance.
             </p>
@@ -330,12 +378,12 @@ export default function HomePage() {
         </section>
 
         {/* PILLARS */}
-        <section id="pillars" className="py-32 md:py-40 px-6 md:px-12 bg-[#0A0A0A] relative overflow-hidden">
+        <section id="pillars" className="py-20 sm:py-20 lg:py-40 px-6 md:px-12 bg-[#0A0A0A] relative overflow-hidden">
           <motion.div animate={{ x: [0, -120, 80, 0], y: [0, 80, -60, 0] }} transition={{ repeat: Infinity, duration: 30, ease: 'easeInOut' }}
             className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4FF00]/[0.02] rounded-full blur-[150px] pointer-events-none" />
-          <div className="max-w-6xl mx-auto mb-20">
+          <div className="max-w-6xl mx-auto mb-10 mb:sm-10 md:mb-15">
             <p className="gsap-reveal font-mono text-gray-600 mb-4 text-[10px] tracking-[0.4em]"><ScrambleText text="[ 02 — ARCHITECTURE ]" delay={200} /></p>
-            <h2 className="gsap-reveal font-oswald text-5xl md:text-7xl font-bold">THE FOUR PILLARS</h2>
+            <h2 className="gsap-reveal font-oswald text-4xl sm:text-5xl md:text-6xl font-bold">THE FOUR PILLARS</h2>
           </div>
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
             {pillars.map((item, i) => (
@@ -364,11 +412,11 @@ export default function HomePage() {
         </section>
 
         {/* PROGRAMS — Grid Layout */}
-        <section id="programs" className="relative py-32 md:py-40 px-6 md:px-12 bg-[#0e0e0e] overflow-hidden">
+        <section className="relative py-20 sm:py-20 lg:py-40 px-6 md:px-12 bg-[#0e0e0e] overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="mb-20 text-center">
+            <div className="mb-5 sm:mb-20 text-center">
               <p className="font-mono text-[#D4FF00] mb-6 text-[10px] tracking-[0.4em]"><ScrambleText text="[ 03 — PROGRAMS ]" delay={200} /></p>
-              <h2 className="font-oswald text-6xl md:text-8xl font-bold leading-[0.9] mb-8">THE PROGRAMS</h2>
+              <h2 className="font-oswald text-4xl sm:text-6xl md:text-6xl font-bold leading-[0.9] mb-8">THE PROGRAMS</h2>
               <p className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto">Mental frameworks, life systems, and performance architectures — not workouts.</p>
             </div>
 
@@ -419,7 +467,12 @@ export default function HomePage() {
             <div>
               <div className="gsap-line w-10 h-px bg-[#D4FF00] mb-6" />
               <p className="gsap-reveal font-mono text-[#D4FF00] text-[10px] tracking-[0.4em] mb-8">— MENTAL ARCHITECTURE</p>
-              <h2 className="gsap-scale-text font-oswald font-black text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-8">THE<br />SYSTEM<br />STARTS<br />HERE.</h2>
+              <h2 className="gsap-scale-text font-oswald font-black text-5xl sm:text-5xl md:text-5xl lg:text-6xl leading-[1] mb-8">
+                THE<br className='' />
+                SYSTEM<br className='' />
+                STARTS<br className='' />
+                HERE.
+              </h2>
               <p className="gsap-reveal text-gray-500 text-lg leading-relaxed max-w-sm mb-10">Psychology. Routines. Nutrition. Social intelligence. One system. Every advantage.</p>
               <MagneticButton className="px-8 py-4 border border-white/20 text-white font-oswald text-xs tracking-[0.2em] flex items-center gap-4 hover:border-[#D4FF00] hover:text-[#D4FF00] transition-all">
                 <span>EXPLORE PROGRAMS</span><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
@@ -429,12 +482,14 @@ export default function HomePage() {
         </section>
 
         {/* CTA */}
-        <section className="py-32 md:py-40 px-6 bg-[#0A0A0A] border-y border-white/5 relative overflow-hidden">
+        <section className="py-20 sm:py-20 lg:py-40 px-6 bg-[#0A0A0A] border-y border-white/5 relative overflow-hidden">
           <motion.div animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }} transition={{ repeat: Infinity, duration: 60, ease: 'linear' }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/[0.02] rounded-full pointer-events-none" />
           <div className="max-w-3xl mx-auto text-center relative z-10">
             <p className="gsap-reveal font-mono text-[#D4FF00] mb-8 text-[10px] tracking-[0.4em]"><ScrambleText text="[ INITIALIZE ]" delay={300} /></p>
-            <h2 className="gsap-scale-text font-oswald text-5xl md:text-8xl font-bold mb-8 leading-[0.9]">READY TO<br />OPERATE?</h2>
+            <h2 className="gsap-scale-text font-oswald text-5xl md:text-7xl font-bold mb-8 leading-tight md:leading-none">
+              READY TO<br />OPERATE?
+            </h2>
             <p className="gsap-reveal text-gray-500 text-lg mb-12 max-w-md mx-auto">Install your operating system. Join thousands who already run on TOP.</p>
             <EKGLine className="mb-12 opacity-40" />
             <MagneticButton className="px-16 py-6 bg-[#D4FF00] text-black font-oswald text-sm tracking-[0.2em] font-bold hover:bg-white transition-colors">ENTER THE SYSTEM</MagneticButton>
