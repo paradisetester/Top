@@ -74,63 +74,67 @@ export default function AboutPillars() {
   return (
     <section className="py-20 px-6 md:px-12">
       <div className="max-w-6xl mx-auto space-y-32">
-        {PILLARS_DATA.map((pillar, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 md:gap-20 items-center`}
-          >
-            {/* Visual Side */}
-            <div className="w-full md:w-1/2">
-              <TiltCard className="relative aspect-[4/5] bg-[#111] border border-white/5 overflow-hidden group">
-                <img
-                  src={pillar.image}
-                  alt={pillar.title}
-                  className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
-                
-                <div className="absolute top-8 left-8">
-                  <p className="font-mono text-[10px] text-[#D4FF00] tracking-[0.3em]">PILLAR_0{i + 1}</p>
-                </div>
-                
-                <div className="absolute bottom-8 right-8 text-right">
-                  <div className="font-oswald text-4xl font-bold">{pillar.stat}</div>
-                  <div className="font-mono text-[10px] tracking-[0.2em] text-gray-500">{pillar.statLabel}</div>
-                </div>
-              </TiltCard>
-            </div>
+        {PILLARS_DATA.map((pillar, i) => {
+          const id = pillar.title.split(' ')[1].toLowerCase();
+          return (
+            <motion.div
+              key={i}
+              id={id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 md:gap-20 items-center`}
+            >
+              {/* Visual Side */}
+              <div className="w-full md:w-1/2">
+                <TiltCard className="relative aspect-[4/5] bg-[#111] border border-white/5 overflow-hidden group">
+                  <img
+                    src={pillar.image}
+                    alt={pillar.title}
+                    className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
 
-            {/* Content Side */}
-            <div className="w-full md:w-1/2 space-y-8">
-              <div>
-                <h2 className="font-oswald text-4xl md:text-5xl font-bold mb-2 tracking-tight">{pillar.title}</h2>
-                <p className="text-[#D4FF00] font-mono text-xs tracking-[0.3em] uppercase opacity-80">{pillar.subtitle}</p>
+                  <div className="absolute top-8 left-8">
+                    <p className="font-mono text-[10px] text-[#D4FF00] tracking-[0.3em]">PILLAR_0{i + 1}</p>
+                  </div>
+
+                  <div className="absolute bottom-8 right-8 text-right">
+                    <div className="font-oswald text-4xl font-bold">{pillar.stat}</div>
+                    <div className="font-mono text-[10px] tracking-[0.2em] text-gray-500">{pillar.statLabel}</div>
+                  </div>
+                </TiltCard>
               </div>
-              
-              <p className="text-gray-300 text-lg leading-relaxed">
-                {pillar.content}
-              </p>
-              
-              <div className="space-y-6">
-                {pillar.points.map((point, pi) => {
-                  const [title, desc] = point.split(': ');
-                  return (
-                    <div key={pi} className="flex gap-4">
-                      <div className="mt-1.5 w-1.5 h-1.5 bg-[#D4FF00] flex-shrink-0" />
-                      <div>
-                        <span className="text-white font-bold block mb-1">{title}</span>
-                        <span className="text-gray-500 text-sm">{desc}</span>
+
+              {/* Content Side */}
+              <div className="w-full md:w-1/2 space-y-8">
+                <div>
+                  <h2 className="font-oswald text-4xl md:text-5xl font-bold mb-2 tracking-tight">{pillar.title}</h2>
+                  <p className="text-[#D4FF00] font-mono text-xs tracking-[0.3em] uppercase opacity-80">{pillar.subtitle}</p>
+                </div>
+
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  {pillar.content}
+                </p>
+
+                <div className="space-y-6">
+                  {pillar.points.map((point, pi) => {
+                    const [title, desc] = point.split(': ');
+                    return (
+                      <div key={pi} className="flex gap-4">
+                        <div className="mt-1.5 w-1.5 h-1.5 bg-[#D4FF00] flex-shrink-0" />
+                        <div>
+                          <span className="text-white font-bold block mb-1">{title}</span>
+                          <span className="text-gray-500 text-sm">{desc}</span>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

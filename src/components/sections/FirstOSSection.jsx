@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { ScrambleText, TiltCard } from '../UIComponents';
 
 const FIRST_OS_DATA = {
@@ -12,6 +13,7 @@ const FIRST_OS_DATA = {
   items: [
     { 
       title: 'THE KINETIC PILLAR', 
+      id: 'kinetic',
       subtitle: 'Physical Mastery & Bio-Mechanical Efficiency',
       desc: 'Technical efficiency of your engine. Fluid, powerful movement and long-term injury resilience.', 
       image: '/pillar-physical.png', 
@@ -20,6 +22,7 @@ const FIRST_OS_DATA = {
     },
     { 
       title: 'THE FUELING ALGORITHM', 
+      id: 'fueling',
       subtitle: 'Biology Over Dieting',
       desc: 'Treating nutrition as a biological algorithm. Mastering circadian rhythms and energy stability.', 
       image: '/pillar-recovery.png', 
@@ -28,6 +31,7 @@ const FIRST_OS_DATA = {
     },
     { 
       title: 'THE MENTAL FIREWALL', 
+      id: 'mental',
       subtitle: 'Psychological Warfare & Vision',
       desc: 'Protecting focus and installing an "All or Nothing" mindset. Dominate high-stakes moments.', 
       image: '/pillar-mental.png', 
@@ -36,6 +40,7 @@ const FIRST_OS_DATA = {
     },
     { 
       title: 'THE DISCIPLINE PROTOCOL', 
+      id: 'discipline',
       subtitle: 'Habit Architecture & Routines',
       desc: 'Non-negotiable daily standards. 3:30 AM standard and stacking daily wins for momentum.', 
       image: '/pillar-system.png', 
@@ -44,6 +49,7 @@ const FIRST_OS_DATA = {
     },
     { 
       title: 'THE SOCIAL INTERFACE', 
+      id: 'social',
       subtitle: 'Status, Leadership & Presence',
       desc: 'Commanding respect and leading with authority. The athlete’s aesthetic and social engineering.', 
       image: '/pillar-social.png', 
@@ -59,6 +65,8 @@ const scaleIn = {
 };
 
 export default function FirstOSSection() {
+  const navigate = useNavigate();
+
   return (
     <section className="pt-20 pb-10 sm:pt-20 sm:pb-10 lg:pt-40 lg:pb-16 px-6 md:px-12 bg-[#0e0e0e] relative overflow-hidden">
       <div className="max-w-6xl mx-auto mb-20">
@@ -71,7 +79,10 @@ export default function FirstOSSection() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {FIRST_OS_DATA.items.map((item, i) => (
           <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleIn}>
-            <TiltCard className="relative bg-[#0A0A0A] border border-white/5 overflow-hidden group cursor-pointer hover:border-[#D4FF00]/30 transition-all duration-500">
+            <TiltCard 
+              onClick={() => navigate(`/about#${item.id}`)}
+              className="relative bg-[#0A0A0A] border border-white/5 overflow-hidden group cursor-pointer hover:border-[#D4FF00]/30 transition-all duration-500"
+            >
               <div className="absolute inset-0">
                 <img src={item.image} alt={item.title} className="w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />

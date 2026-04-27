@@ -6,7 +6,17 @@ export default function AboutPage() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const hash = window.location.hash;
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 500);
+      } else {
+        window.scrollTo(0, 0);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
     const t = setTimeout(() => setIsLoaded(true), 500);
     return () => clearTimeout(t);
   }, []);

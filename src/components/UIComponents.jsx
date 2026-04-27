@@ -50,7 +50,7 @@ export function ScrambleText({ text, className, delay = 0 }) {
 }
 
 /* ─── 3D Tilt Card ─── */
-export function TiltCard({ children, className }) {
+export function TiltCard({ children, className, ...props }) {
   const ref = useRef(null);
   const x = useMotionValue(0); const y = useMotionValue(0);
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [6, -6]), { stiffness: 200, damping: 20 });
@@ -63,7 +63,7 @@ export function TiltCard({ children, className }) {
   }, [x, y]);
   return (
     <motion.div ref={ref} onMouseMove={handleMouse} onMouseLeave={() => { x.set(0); y.set(0); }}
-      style={{ rotateX, rotateY, transformStyle: 'preserve-3d', perspective: 800 }} className={className}>
+      style={{ rotateX, rotateY, transformStyle: 'preserve-3d', perspective: 800 }} className={className} {...props}>
       {children}
     </motion.div>
   );
