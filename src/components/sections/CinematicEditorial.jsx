@@ -3,7 +3,8 @@ const EDITORIAL_DATA = {
   imageAlt: 'Athlete silhouette',
   heading: 'YOUR MIND',
   headingLine2: 'IS THE MACHINE.',
-  body: "We don't just prepare athletes. We engineer the mental systems behind every win.",
+  bodyLine1: "We don't just physically prepare athletes.",
+  bodyLine2: "We engineer the mental systems behind every win.",
 };
 
 export default function CinematicEditorial({ ref }) {
@@ -15,7 +16,7 @@ export default function CinematicEditorial({ ref }) {
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="text-center max-w-4xl px-6">
             <h2 className="gsap-scale-text font-oswald font-black text-4xl md:text-[75px] leading-[1] tracking-tighter mb-6">{EDITORIAL_DATA.heading}<br />{EDITORIAL_DATA.headingLine2}</h2>
-            <p className="gsap-reveal text-gray-400 text-lg max-w-md mx-auto">{EDITORIAL_DATA.body}</p>
+            <p className="gsap-reveal text-gray-400 text-lg max-w-md mx-auto">{EDITORIAL_DATA.bodyLine1}<br />{EDITORIAL_DATA.bodyLine2}</p>
           </div>
         </div>
       </div>

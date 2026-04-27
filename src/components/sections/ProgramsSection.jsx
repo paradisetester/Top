@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { ScrambleText, MagneticButton, EKGLine } from '../UIComponents';
 
 const PROGRAMS_DATA = {
-  label: '[ 03 — PROGRAMS ]',
+  label: '[ 02 — PROGRAMS ]',
   heading: 'THE PROGRAMS',
   subtitle: 'Mental frameworks, life systems, and performance architectures — not workouts.',
   ctaText: 'VIEW ALL PROGRAMS',
@@ -22,7 +22,7 @@ const scaleIn = {
 
 export default function ProgramsSection() {
   return (
-    <section className="relative py-20 sm:py-20 lg:py-40 px-6 md:px-12 bg-[#0e0e0e] overflow-hidden">
+    <section className="relative pt-10 pb-20 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-40 px-6 md:px-12 bg-[#0e0e0e] overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="mb-5 sm:mb-20 text-center">
           <p className="font-mono text-[#D4FF00] mb-6 text-[10px] tracking-[0.4em]"><ScrambleText text={PROGRAMS_DATA.label} delay={200} /></p>

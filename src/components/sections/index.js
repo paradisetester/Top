@@ -1,12 +1,11 @@
 export { default as Loader } from './Loader';
 export { default as Navbar } from './Navbar';
 export { default as HeroSection } from './HeroSection';
-export { default as AthleteIntake } from './AthleteIntake';
 export { default as StatsSection } from './StatsSection';
 export { default as MissionSection } from './MissionSection';
+export { default as AthleteIntake } from './AthleteIntake';
 export { default as CinematicEditorial } from './CinematicEditorial';
 export { default as FirstOSSection } from './FirstOSSection';
-export { default as PillarsSection } from './PillarsSection';
 export { default as ProgramsSection } from './ProgramsSection';
 export { default as EditorialSplit } from './EditorialSplit';
 export { default as CTASection } from './CTASection';

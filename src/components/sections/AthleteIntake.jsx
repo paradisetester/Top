@@ -5,7 +5,7 @@ const INTAKE_DATA = {
   label: '[ PROGRAM INTAKE ]',
   heading: 'DETERMINE YOUR TIER',
   subtitle: "Enter your metrics. We'll match you to the right operating system.",
-  submitText: 'LOCATE SYSTEM →',
+  submitText: 'GET RESULTS →',
   shopifyBase: 'https://your-store.myshopify.com/collections/',
   fields: [
     { key: 'height_ft', label: 'HEIGHT (FT)', placeholder: '5', type: 'number' },

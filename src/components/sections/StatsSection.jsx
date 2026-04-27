@@ -2,8 +2,8 @@ import { motion } from 'motion/react';
 import { useCounter } from '../UIComponents';
 
 const STATS_DATA = [
-  { target: 2847, duration: 2500, suffix: '', label: 'MEMBERS' },
-  { target: 12, duration: 1500, suffix: '', label: 'PROGRAMS' },
+  { target: 3847, duration: 2500, suffix: '', label: 'MEMBERS' },
+  { target: 16, duration: 1500, suffix: '', label: 'SYSTEMS' },
   { target: 38, duration: 2000, suffix: '', label: 'STATES' },
 ];
 

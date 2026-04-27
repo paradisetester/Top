@@ -7,12 +7,11 @@ import {
   Loader,
   Navbar,
   HeroSection,
-  AthleteIntake,
   StatsSection,
   MissionSection,
+  AthleteIntake,
   CinematicEditorial,
   FirstOSSection,
-  PillarsSection,
   ProgramsSection,
   EditorialSplit,
   CTASection,
@@ -92,14 +91,14 @@ export default function HomePage() {
         {/* HERO */}
         <HeroSection isLoaded={isLoaded} />
 
-        {/* ATHLETE INTAKE MODULE */}
-        <AthleteIntake />
-
         {/* STATS */}
         <StatsSection />
 
         {/* MISSION */}
         <MissionSection />
+
+        {/* ATHLETE INTAKE MODULE */}
+        <AthleteIntake />
 
         {/* CINEMATIC EDITORIAL */}
         <CinematicEditorial ref={videoSectionRef} />
@@ -107,11 +106,10 @@ export default function HomePage() {
         {/* YOUR FIRST OPERATING SYSTEM */}
         <FirstOSSection />
 
-        {/* PILLARS */}
-        <PillarsSection />
-
         {/* PROGRAMS */}
-        <ProgramsSection />
+        <div id="programs">
+          <ProgramsSection />
+        </div>
 
         {/* EDITORIAL SPLITS */}
         <EditorialSplit />
@@ -120,7 +118,9 @@ export default function HomePage() {
         <CTASection />
 
         {/* FOOTER */}
-        <Footer />
+        <section id="contact">
+          <Footer />
+        </section>
       </div>
     </>
   );
