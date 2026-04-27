@@ -51,7 +51,7 @@ export default function ProgramsSection() {
                   <span className="font-mono text-[8px] tracking-[0.2em] text-gray-600 ml-2">{item.specLabel}</span>
                 </div>
                 <button onClick={() => alert('Connect Shopify to enable purchasing.')}
-                  className="w-full py-4 border border-white/10 text-gray-300 font-oswald text-[10px] tracking-[0.2em] flex items-center justify-between px-6 group-hover:bg-[#D4FF00] group-hover:text-black group-hover:border-[#D4FF00] transition-all">
+                  className="max-w-[190px] py-4 border border-white/10 text-gray-300 font-oswald text-[10px] tracking-[0.2em] flex items-center justify-between px-6 group-hover:bg-[#D4FF00] group-hover:text-black group-hover:border-[#D4FF00] transition-all">
                   <span>ADD TO SYSTEM</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
                 </button>
