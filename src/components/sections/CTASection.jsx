@@ -16,12 +16,12 @@ export default function CTASection() {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/[0.02] rounded-full pointer-events-none" />
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <p className="gsap-reveal font-mono text-[#D4FF00] mb-8 text-[10px] tracking-[0.4em]"><ScrambleText text={CTA_DATA.label} delay={300} /></p>
-        <h2 className="gsap-scale-text font-oswald text-5xl md:text-7xl font-bold mb-8 leading-tight md:leading-none">
+        <h2 className="gsap-scale-text font-oswald text-4xl md:text-7xl font-bold mb-8 leading-tight md:leading-none">
           {CTA_DATA.heading}<br />{CTA_DATA.headingLine2}
         </h2>
         <p className="gsap-reveal text-gray-500 text-lg mb-12 max-w-md mx-auto">{CTA_DATA.body}</p>
         <EKGLine className="mb-12 opacity-40" />
-        <MagneticButton className="px-16 py-6 bg-[#D4FF00] text-black font-oswald text-sm tracking-[0.2em] font-bold hover:bg-white transition-colors">{CTA_DATA.ctaText}</MagneticButton>
+        <MagneticButton className="px-16 py-3 md:py-6 bg-[#D4FF00] text-black font-oswald text-sm tracking-[0.2em] font-bold hover:bg-white transition-colors">{CTA_DATA.ctaText}</MagneticButton>
       </div>
     </section>
   );

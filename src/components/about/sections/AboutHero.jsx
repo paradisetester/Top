@@ -10,7 +10,7 @@ const HERO_DATA = {
 
 export default function AboutHero({ isLoaded }) {
   return (
-    <section className="pt-40 pb-20 px-6 md:px-12 relative overflow-hidden">
+    <section className="pt-40 pb-10 md:pb-20 px-6 md:px-12 relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.p
           initial={{ opacity: 0, y: 20 }}

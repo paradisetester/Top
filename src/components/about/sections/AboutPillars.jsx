@@ -72,7 +72,7 @@ const PILLARS_DATA = [
 
 export default function AboutPillars() {
   return (
-    <section className="py-20 px-6 md:px-12">
+    <section className="py-10 md:py-20 px-6 md:px-12">
       <div className="max-w-6xl mx-auto space-y-32">
         {PILLARS_DATA.map((pillar, i) => {
           const id = pillar.title.split(' ')[1].toLowerCase();

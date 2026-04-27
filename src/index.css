@@ -65,3 +65,10 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+@media(max-width:767px){
+  div#mental,div#fueling,#kinetic
+,div#discipline {
+    margin-bottom: 80px;
+}
+}
