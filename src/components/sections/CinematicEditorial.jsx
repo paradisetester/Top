@@ -2,7 +2,7 @@ const EDITORIAL_DATA = {
   image: '/editorial.png',
   imageAlt: 'Athlete silhouette',
   heading: 'YOUR MIND',
-  headingLine2: 'IS THE MACHINE.',
+  headingLine2: 'IS THE MACHINE',
   bodyLine1: "We don't just physically prepare athletes.",
   bodyLine2: "We engineer the mental systems behind every win.",
 };

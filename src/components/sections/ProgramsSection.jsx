@@ -2,9 +2,9 @@ import { motion } from 'motion/react';
 import { ScrambleText, MagneticButton, EKGLine } from '../UIComponents';
 
 const PROGRAMS_DATA = {
-  label: '[ 02 — PROGRAMS ]',
-  heading: 'THE PROGRAMS',
-  subtitle: 'Mental frameworks, life systems, and performance architectures — not workouts.',
+  label: '[ 02 — Systems ]',
+  heading: 'The Systems',
+  subtitle: 'Mind. Body. Life.',
   ctaText: 'VIEW ALL PROGRAMS',
   items: [
     { name: 'FIRST DAY PROTOCOL', price: '$79', tag: 'MINDSET', desc: 'Mental preparation system for walking into new environments with confidence and clarity.', spec: '7 modules', specLabel: 'PROGRAM' },
@@ -22,7 +22,7 @@ const scaleIn = {
 
 export default function ProgramsSection() {
   return (
-    <section className="relative pt-10 pb-20 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-40 px-6 md:px-12 bg-[#0e0e0e] overflow-hidden">
+    <section className="relative pt-20 md:pt-20 pb-20 sm:pb-20 lg:pb-30 px-6 md:px-12 bg-[#000] overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="mb-5 sm:mb-20 text-center">
           <p className="font-mono text-[#D4FF00] mb-6 text-[10px] tracking-[0.4em]"><ScrambleText text={PROGRAMS_DATA.label} delay={200} /></p>
@@ -60,7 +60,7 @@ export default function ProgramsSection() {
           ))}
         </div>
 
-        <div className="mt-20 flex justify-center">
+        <div className="mt-20 flex justify-center hidden">
           <MagneticButton className="px-10 py-4 bg-[#D4FF00] text-black font-oswald text-xs tracking-[0.2em] font-bold hover:bg-white transition-colors">{PROGRAMS_DATA.ctaText}</MagneticButton>
         </div>
       </div>

@@ -7,7 +7,7 @@ const FIRST_OS_DATA = {
   heading: 'YOUR ELITE',
   headingLine2: 'OPERATING SYSTEM.',
   subtitle: "The highest achievers didn’t wait. They started working a system early and upgraded regularly. TOP is built for elite performance.",
-  tagline: 'Elite Operator',
+  tagline: 'Pillar',
   cardTitle: 'ESTABLISH DOMINANCE',
   cardDesc: 'Build your mental framework before everyone else and run on an elite system.',
   items: [
@@ -68,17 +68,18 @@ export default function FirstOSSection() {
   const navigate = useNavigate();
 
   return (
-    <section className="pt-20 pb-10 sm:pt-20 sm:pb-10 lg:pt-40 lg:pb-16 px-6 md:px-12 bg-[#0e0e0e] relative overflow-hidden">
-      <div className="max-w-6xl mx-auto mb-20">
+    <section className="pt-20 pb-10 sm:pt-20 sm:pb-10 lg:pt-30 lg:pb-16 px-6 md:px-12 bg-[#0e0e0e] relative overflow-hidden">
+      <div className="max-w-6xl mx-auto mb-15 md:mb-20">
         <p className="gsap-reveal font-mono text-gray-600 mb-4 text-[10px] tracking-[0.4em]"><ScrambleText text={FIRST_OS_DATA.label} delay={200} /></p>
         <h2 className="gsap-reveal font-oswald text-4xl sn:text-5xl md:text-6xl font-bold mb-6">{FIRST_OS_DATA.heading}<br className="hidden sm:inline" />{FIRST_OS_DATA.headingLine2}</h2>
         <p className="gsap-reveal text-gray-400 max-w-xl text-lg leading-relaxed">
           {FIRST_OS_DATA.subtitle}
         </p>
       </div>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> */}
+   <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-4 justify-center pb-20">
         {FIRST_OS_DATA.items.map((item, i) => (
-          <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleIn}>
+          <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleIn} className='w-full md:w-[32%]'>
             <TiltCard 
               onClick={() => navigate(`/about#${item.id}`)}
               className="relative bg-[#0A0A0A] border border-white/5 overflow-hidden group cursor-pointer hover:border-[#D4FF00]/30 transition-all duration-500"

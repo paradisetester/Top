@@ -98,7 +98,7 @@ export default function HomePage() {
         <MissionSection />
 
         {/* ATHLETE INTAKE MODULE */}
-        <AthleteIntake />
+  
 
         {/* CINEMATIC EDITORIAL */}
         <CinematicEditorial ref={videoSectionRef} />
@@ -110,7 +110,9 @@ export default function HomePage() {
         <div id="programs">
           <ProgramsSection />
         </div>
-
+        
+  {/* ATHLETE INTAKE MODULE */}
+        <AthleteIntake />
         {/* EDITORIAL SPLITS */}
         <EditorialSplit />
 

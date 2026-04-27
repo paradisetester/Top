@@ -65,10 +65,17 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+#programs section{
+padding-top:120px;
+}
+
 
 @media(max-width:767px){
   div#mental,div#fueling,#kinetic
 ,div#discipline {
     margin-bottom: 80px;
+}
+#programs section{
+padding-top:80px;
 }
 }
