@@ -42,7 +42,7 @@ const EXECUTIVE_DATA = {
 
 export default function SystemsExecutive({ onOpenSystem }) {
   return (
-    <section id="executive" className="relative py:20 md:py-24 px-6 md:px-12 bg-[#020202] overflow-hidden border-t border-white/5">
+    <section id="executive" className="relative py-20 md:py-24 px-6 md:px-12 bg-[#020202] overflow-hidden border-t border-white/5">
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'linear-gradient(rgba(212,255,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(212,255,0,0.1) 1px, transparent 1px)', backgroundSize: '100px 100px' }} />
