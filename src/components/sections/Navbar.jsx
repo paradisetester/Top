@@ -6,7 +6,7 @@ import LogoIcon from '../../logos/logo-icon.png';
 const NAV_DATA = {
   links: [
     { name: 'ABOUT', path: '/about' },
-    { name: 'SYSTEMS', path: '/#programs' },
+    { name: 'SYSTEMS', path: '/systems' },
     { name: 'CONTACT', path: '/#contact' },
   ],
   ctaText: 'ENTER',

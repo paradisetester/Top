@@ -40,9 +40,9 @@ export function ScrambleText({ text, className, delay = 0 }) {
           if (i < iter) return text[i];
           return chars[Math.floor(Math.random() * chars.length)];
         }).join(''));
-        iter += 0.5;
+        iter += 1.5;
         if (iter > text.length) clearInterval(iv);
-      }, 30);
+      }, 20);
     }, delay);
     return () => clearTimeout(t);
   }, [inView, text, delay]);
@@ -118,5 +118,100 @@ export function EKGLine({ className = '' }) {
           fill="none" stroke="#D4FF00" strokeWidth="2" opacity="0.15" className="ekg-glow" style={{ filter: 'blur(4px)' }} />
       </svg>
     </div>
+  );
+}
+/* ─── System Detail Modal ─── */
+export function SystemModal({ system, onClose }) {
+  if (!system) return null;
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[200] flex items-center justify-center px-6"
+    >
+      <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={onClose} />
+      
+      <motion.div 
+        initial={{ scale: 0.9, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.9, opacity: 0, y: 20 }}
+        className="relative w-full max-w-4xl bg-[#0A0A0A] border border-white/10 p-8 md:p-12 overflow-hidden shadow-2xl"
+      >
+        {/* Technical Border Accents */}
+        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4FF00]" />
+        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#D4FF00]" />
+        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#D4FF00]" />
+        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4FF00]" />
+
+        <button 
+          onClick={onClose}
+          className="absolute top-8 right-8 text-gray-500 hover:text-white transition-colors"
+        >
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="square" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div className="relative z-10">
+          <span className="font-mono text-[10px] text-[#D4FF00] mb-4 block uppercase tracking-[0.5em]">
+            SYSTEM_PROTOCOL // 0{system.id}
+          </span>
+          
+          <h2 className="font-oswald text-4xl md:text-6xl font-bold text-white mb-10 uppercase tracking-tighter leading-none">
+            {system.name || system.title}
+          </h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="space-y-8">
+              <div>
+                <p className="font-mono text-[10px] text-gray-500 uppercase mb-3 tracking-[0.3em]">Full Descriptor</p>
+                <p className="text-gray-400 text-lg leading-relaxed font-inter font-light italic">
+                  {system.text}
+                </p>
+              </div>
+              
+              <div className="p-8 bg-white/[0.02] border border-white/5">
+                <p className="font-mono text-[10px] text-[#D4FF00] uppercase mb-4 tracking-[0.3em]">Operational Bundle</p>
+                <p className="text-sm text-gray-300 leading-relaxed">{system.bundle}</p>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="p-8 bg-[#D4FF00]/[0.03] border border-[#D4FF00]/10">
+                <p className="font-mono text-[10px] text-[#D4FF00] uppercase mb-4 tracking-[0.3em]">The System Hook</p>
+                <p className="text-sm text-[#D4FF00]/90 leading-relaxed font-bold italic">
+                  "{system.hook}"
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <p className="font-mono text-[10px] text-gray-500 uppercase tracking-[0.3em]">System Requirements</p>
+                <div className="flex flex-wrap gap-2">
+                  {['100% Commitment', 'Zero Friction', 'High Output'].map(tag => (
+                    <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 font-mono text-[8px] text-gray-400 uppercase tracking-widest">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 pt-8 border-t border-white/5 flex justify-between items-center">
+            <div className="flex items-center gap-4">
+              <div className="w-2 h-2 bg-[#D4FF00] rounded-full animate-pulse" />
+              <span className="font-mono text-[9px] text-gray-500 tracking-widest uppercase">Protocol Initialised</span>
+            </div>
+            <button 
+              onClick={onClose}
+              className="font-oswald text-xs text-[#D4FF00] tracking-[0.4em] uppercase hover:translate-x-2 transition-transform flex items-center gap-4"
+            >
+              Close Interface
+              <div className="w-12 h-[1px] bg-[#D4FF00]" />
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
