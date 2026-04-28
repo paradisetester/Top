@@ -38,7 +38,7 @@ const FOUNDATION_DATA = {
 
 export default function SystemsFoundation({ onOpenSystem }) {
   return (
-    <section id="foundation" className="relative py-32 px-6 md:px-12 bg-[#050505] overflow-hidden border-b border-white/5">
+    <section id="foundation" className="relative py-20 md:py-24 px-6 md:px-12 bg-[#050505] overflow-hidden border-b border-white/5">
       {/* Schematic Layer */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <div className="absolute top-0 left-1/4 w-px h-full bg-white" />

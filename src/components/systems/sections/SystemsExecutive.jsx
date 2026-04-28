@@ -42,7 +42,7 @@ const EXECUTIVE_DATA = {
 
 export default function SystemsExecutive({ onOpenSystem }) {
   return (
-    <section id="executive" className="relative py-24 px-6 md:px-12 bg-[#020202] overflow-hidden border-t border-white/5">
+    <section id="executive" className="relative py:20 md:py-24 px-6 md:px-12 bg-[#020202] overflow-hidden border-t border-white/5">
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'linear-gradient(rgba(212,255,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(212,255,0,0.1) 1px, transparent 1px)', backgroundSize: '100px 100px' }} />
@@ -59,7 +59,7 @@ export default function SystemsExecutive({ onOpenSystem }) {
             <p className="font-mono text-[#D4FF00] mb-4 text-[10px] tracking-[0.5em] uppercase">
               {EXECUTIVE_DATA.label}
             </p>
-            <h2 className="font-oswald text-5xl md:text-7xl font-bold uppercase leading-[0.9] tracking-tighter mb-6">
+            <h2 className="font-oswald text-5xl md:text-7xl font-bold uppercase leading-[1.1] md:leading-[0.9] tracking-tighter mb-6">
               {EXECUTIVE_DATA.heading} <br /> <span className="text-[#D4FF00] italic drop-shadow-[0_0_15px_rgba(212,255,0,0.3)]">{EXECUTIVE_DATA.headingAccent}</span>
             </h2>
             

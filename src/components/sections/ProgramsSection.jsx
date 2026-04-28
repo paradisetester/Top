@@ -118,7 +118,7 @@ function SystemCard({ system, i, activeTier }) {
       className="w-full bg-[#0A0A0A] border border-white/5 flex flex-col group cursor-pointer hover:border-[#D4FF00]/30 transition-all duration-500 min-h-[500px] overflow-hidden relative"
     >
       {/* Loading Progress Bar */}
-      <motion.div 
+      <motion.div
         className="absolute top-0 left-0 h-[2px] bg-[#D4FF00] z-20"
         initial={{ width: 0 }}
         animate={{ width: '100%' }}
@@ -127,7 +127,7 @@ function SystemCard({ system, i, activeTier }) {
 
       {/* Visual Header */}
       <div className="h-48 w-full relative overflow-hidden bg-[#111] flex items-center justify-center">
-        <motion.div 
+        <motion.div
           style={{ x: moveX, y: moveY }}
           className="text-center relative z-10"
         >
@@ -135,13 +135,13 @@ function SystemCard({ system, i, activeTier }) {
             {system.id}
           </div>
         </motion.div>
-        
+
         <div className="absolute top-4 right-4 z-10">
           <span className="font-mono text-[9px] tracking-[0.2em] text-[#D4FF00]/40 uppercase group-hover:text-[#D4FF00] transition-colors duration-500">
             Protocol Active
           </span>
         </div>
-        
+
         {/* Hover EKG Intensity */}
         <EKGLine className="absolute bottom-0 left-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />
@@ -161,7 +161,7 @@ function SystemCard({ system, i, activeTier }) {
           {system.descriptor}
         </p>
 
-        <button 
+        <button
           onClick={() => alert('System details being decrypted...')}
           className="max-w-[200px] py-4 border border-white/10 text-gray-300 font-oswald text-[10px] tracking-[0.2em] flex items-center justify-between px-6 group-hover:bg-[#D4FF00] group-hover:text-black group-hover:border-[#D4FF00] transition-all relative overflow-hidden"
         >
@@ -184,14 +184,14 @@ export default function ProgramsSection() {
   const [activeTier, setActiveTier] = useState(0);
 
   return (
-    <section className="relative pt-20 pb-32 px-6 md:px-12 bg-[#000] overflow-hidden">
+    <section className="relative pt-20 pb-20 md:pb-32 px-6 md:px-12 bg-[#000] overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-20 text-center">
           <p className="font-mono text-[#D4FF00] mb-6 text-[10px] tracking-[0.4em] uppercase">
             <ScrambleText text="[ 02 — THE SYSTEMS ]" delay={200} />
           </p>
-          <h2 className="font-oswald text-5xl sm:text-7xl font-bold leading-[0.9] mb-8 uppercase">
+          <h2 className="font-oswald text-4xl sm:text-6xl font-bold leading-[1.1] md:leading-[1.1] mb-8 uppercase">
             ENGINEER YOUR <br /> PERFORMANCE.
           </h2>
           <p className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto font-inter">
@@ -205,11 +205,10 @@ export default function ProgramsSection() {
             <button
               key={idx}
               onClick={() => setActiveTier(idx)}
-              className={`flex-1 group relative p-8 border transition-all duration-500 text-left overflow-hidden ${
-                activeTier === idx 
-                  ? 'border-[#D4FF00] bg-[#D4FF00]/5' 
+              className={`flex-1 group relative p-8 border transition-all duration-500 text-left overflow-hidden ${activeTier === idx
+                  ? 'border-[#D4FF00] bg-[#D4FF00]/5'
                   : 'border-white/10 hover:border-white/30 bg-[#0A0A0A]'
-              }`}
+                }`}
             >
               <div className="relative z-10">
                 <p className={`font-mono text-[10px] tracking-widest mb-2 ${activeTier === idx ? 'text-[#D4FF00]' : 'text-gray-500'}`}>
@@ -219,8 +218,8 @@ export default function ProgramsSection() {
                   {tier.title}
                 </h3>
               </div>
-              <motion.div 
-                className="absolute bottom-0 left-0 h-1 bg-[#D4FF00]"
+              <motion.div
+                className="absolute bottom-0 left-0 h-[2px] bg-[#D4FF00]"
                 initial={false}
                 animate={{ width: activeTier === idx ? '100%' : '0%' }}
                 transition={{ duration: 0.4, ease: "circOut" }}
@@ -250,11 +249,11 @@ export default function ProgramsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <AnimatePresence mode="wait">
             {TIERS_DATA[activeTier].systems.map((system, i) => (
-              <SystemCard 
-                key={`${activeTier}-${system.id}`} 
-                system={system} 
-                i={i} 
-                activeTier={activeTier} 
+              <SystemCard
+                key={`${activeTier}-${system.id}`}
+                system={system}
+                i={i}
+                activeTier={activeTier}
               />
             ))}
           </AnimatePresence>

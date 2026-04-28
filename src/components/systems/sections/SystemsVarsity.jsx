@@ -39,7 +39,7 @@ const VARSITY_DATA = {
 
 export default function SystemsVarsity({ onOpenSystem }) {
   return (
-    <section id="varsity" className="relative py-32 px-6 md:px-12 bg-black overflow-hidden border-y border-white/5">
+    <section id="varsity" className="relative py-20 md:py-24 px-6 md:px-12 bg-black overflow-hidden border-y border-white/5">
       {/* Background Graphic */}
       <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
         <div className="absolute inset-0 bg-gradient-to-l from-[#D4FF00]/20 to-transparent" />
@@ -58,7 +58,7 @@ export default function SystemsVarsity({ onOpenSystem }) {
               <span className="w-12 h-[1px] bg-[#D4FF00]" />
               {VARSITY_DATA.label}
             </p>
-            <h2 className="font-oswald text-5xl md:text-7xl font-bold mb-8 uppercase tracking-tighter leading-[0.9] text-white">
+            <h2 className="font-oswald text-5xl md:text-7xl font-bold mb-8 uppercase tracking-tighter leading-[1.1] md:leading-[0.9] text-white">
               {VARSITY_DATA.heading} <br /> 
               <span className="italic text-[#D4FF00] opacity-90 drop-shadow-[0_0_15px_rgba(212,255,0,0.2)]">{VARSITY_DATA.headingAccent}</span>
             </h2>
