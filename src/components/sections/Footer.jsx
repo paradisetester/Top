@@ -1,9 +1,14 @@
+import { Link } from 'react-router-dom';
 import LogoMain from '../../logos/logo-main.png';
 
 const FOOTER_DATA = {
   tagline: 'The operating system for athletes who refuse to be average. Mind. Body. Social. System.',
   navTitle: 'NAVIGATE',
-  navLinks: ['System', 'Pillars', 'Programs'],
+  navLinks: [
+    { name: 'ABOUT', path: '/about' },
+    { name: 'SYSTEMS', path: '/systems' },
+    { name: 'CONTACT', path: '/contact' },
+  ],
   socialTitle: 'CONNECT',
   socialLinks: ['Instagram', 'Twitter/X', 'TikTok'],
   copyright: 'TOP — ALL OR NOTHING',
@@ -23,11 +28,15 @@ export default function Footer() {
 
           <div className="flex gap-15 block md:hidden">
             <div>
-            <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">{FOOTER_DATA.navTitle}</h4>
-            <div className="flex flex-col space-y-3">
-              {FOOTER_DATA.navLinks.map((l) => (<a key={l} href={`#${l.toLowerCase()}`} className="text-gray-600 hover:text-[#D4FF00] text-sm transition-colors">{l}</a>))}
+              <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">{FOOTER_DATA.navTitle}</h4>
+              <div className="flex flex-col space-y-3">
+                {FOOTER_DATA.navLinks.map((l) => (
+                  <Link key={l.name} to={l.path} className="text-gray-600 hover:text-[#D4FF00] text-sm transition-colors">
+                    {l.name}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
           <div>
             <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">{FOOTER_DATA.socialTitle}</h4>
             <div className="flex flex-col space-y-3">
@@ -38,7 +47,11 @@ export default function Footer() {
           <div className='hidden md:block'>
             <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">{FOOTER_DATA.navTitle}</h4>
             <div className="flex flex-col space-y-3">
-              {FOOTER_DATA.navLinks.map((l) => (<a key={l} href={`#${l.toLowerCase()}`} className="text-gray-600 hover:text-[#D4FF00] text-sm transition-colors">{l}</a>))}
+              {FOOTER_DATA.navLinks.map((l) => (
+                <Link key={l.name} to={l.path} className="text-gray-600 hover:text-[#D4FF00] text-sm transition-colors">
+                  {l.name}
+                </Link>
+              ))}
             </div>
           </div>
 

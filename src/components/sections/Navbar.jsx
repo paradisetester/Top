@@ -7,7 +7,7 @@ const NAV_DATA = {
   links: [
     { name: 'ABOUT', path: '/about' },
     { name: 'SYSTEMS', path: '/systems' },
-    { name: 'CONTACT', path: '/#contact' },
+    { name: 'CONTACT', path: '/contact' },
   ],
   ctaText: 'ENTER',
 };
@@ -36,8 +36,9 @@ export default function Navbar({ isLoaded }) {
           {NAV_DATA.links.map((l) => {
             const isExternal = l.path.startsWith('/#');
             const target = isHome && isExternal ? l.path.substring(1) : l.path;
+            const isInternal = l.path.startsWith('/');
 
-            return l.path === '/about' ? (
+            return isInternal ? (
               <Link
                 key={l.name}
                 to={l.path}
@@ -91,7 +92,7 @@ export default function Navbar({ isLoaded }) {
       >
         <div className="flex flex-col items-center py-6 space-y-6 font-oswald text-lg text-gray-300">
           {NAV_DATA.links.map((l) => (
-            l.path === '/about' ? (
+            l.path.startsWith('/') ? (
               <Link
                 key={l.name}
                 to={l.path}

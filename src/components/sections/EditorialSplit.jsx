@@ -1,12 +1,14 @@
 import { MagneticButton } from '../UIComponents';
+import { Link } from 'react-router-dom';
 
 const EDITORIAL_SPLIT_DATA = {
   image: '/editorial-2.png',
   imageAlt: 'Training',
-  label: '— MENTAL ARCHITECTURE',
-  heading: ['THE', 'SYSTEM', 'STARTS', 'HERE.'],
-  body: 'Psychology. Routines. Nutrition. Social intelligence. One system. Every advantage.',
-  ctaText: 'EXPLORE PROGRAMS',
+  label: '— ALL OR NOTHING',
+  heading: ['ELITE', 'STARTS', 'HERE'],
+  body: 'Mind. Body. Future',
+  ctaText: 'EXPLORE SYSTEMS',
+  ctaLink: '/systems',
 };
 
 export default function EditorialSplit() {
@@ -27,9 +29,14 @@ export default function EditorialSplit() {
             ))}
           </h2>
           <p className="gsap-reveal text-gray-500 text-lg leading-relaxed max-w-sm mb-10">{EDITORIAL_SPLIT_DATA.body}</p>
-          <MagneticButton className="px-8 py-4 border border-white/20 text-white font-oswald text-xs tracking-[0.2em] flex items-center gap-4 hover:border-[#D4FF00] hover:text-[#D4FF00] transition-all">
-            <span>{EDITORIAL_SPLIT_DATA.ctaText}</span><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
-          </MagneticButton>
+          <Link to={EDITORIAL_SPLIT_DATA.ctaLink}>
+            <MagneticButton className="px-8 py-4 border border-white/20 text-white font-oswald text-xs tracking-[0.2em] flex items-center gap-4 hover:border-[#D4FF00] hover:text-[#D4FF00] transition-all w-fit">
+              <span>{EDITORIAL_SPLIT_DATA.ctaText}</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </MagneticButton>
+          </Link>
         </div>
       </div>
     </section>

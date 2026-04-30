@@ -1,12 +1,14 @@
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { ScrambleText, MagneticButton, EKGLine } from '../UIComponents';
 
 const CTA_DATA = {
   label: '[ INITIALIZE ]',
-  heading: 'READY TO',
-  headingLine2: 'OPERATE?',
-  body: 'Install your operating system. Join thousands who already run on TOP.',
+  heading: 'READY FOR THE',
+  headingLine2: 'NEXT LEVEL?',
+  body: 'Join thousands on their way to the top.',
   ctaText: 'ENTER THE SYSTEM',
+  ctaLink: '/contact',
 };
 
 export default function CTASection() {
@@ -21,7 +23,11 @@ export default function CTASection() {
         </h2>
         <p className="gsap-reveal text-gray-500 text-lg mb-12 max-w-md mx-auto">{CTA_DATA.body}</p>
         <EKGLine className="mb-12 opacity-40" />
-        <MagneticButton className="px-16 py-3 md:py-6 bg-[#D4FF00] text-black font-oswald text-sm tracking-[0.2em] font-bold hover:bg-white transition-colors">{CTA_DATA.ctaText}</MagneticButton>
+        <Link to={CTA_DATA.ctaLink}>
+          <MagneticButton className="px-16 py-3 md:py-6 bg-[#D4FF00] text-black font-oswald text-sm tracking-[0.2em] font-bold hover:bg-white transition-colors">
+            {CTA_DATA.ctaText}
+          </MagneticButton>
+        </Link>
       </div>
     </section>
   );

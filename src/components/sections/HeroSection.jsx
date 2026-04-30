@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { Particles, MagneticButton } from '../UIComponents';
 
 const HERO_DATA = {
-  images: ['/hero-focused.png', '/hero-sprint.png', '/hero-tape.png', '/hero-cones.png'],
+  images: ['/hero-sprint.png', '/hero-focused.png', '/hero-chart.png'],
   carouselInterval: 4000,
   statusLabel: 'TRAINING OPTIMIZATION PROGRAM',
   title: 'ALL OR NOTHING',

@@ -125,15 +125,15 @@ export function SystemModal({ system, onClose }) {
   if (!system) return null;
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-6"
     >
       <div className="absolute inset-0 bg-black/95 backdrop-blur-md" onClick={onClose} />
-      
-      <motion.div 
+
+      <motion.div
         initial={{ scale: 0.9, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -147,7 +147,7 @@ export function SystemModal({ system, onClose }) {
 
         {/* Header with Close Button */}
         <div className="sticky top-0 right-0 p-6 md:p-8 flex justify-end z-30 pointer-events-none">
-          <button 
+          <button
             onClick={onClose}
             className="pointer-events-auto p-2 bg-black/50 border border-white/10 text-gray-500 hover:text-white transition-colors"
           >
@@ -162,7 +162,7 @@ export function SystemModal({ system, onClose }) {
             <span className="font-mono text-[10px] text-[#D4FF00] mb-4 block uppercase tracking-[0.5em]">
               SYSTEM_PROTOCOL // 0{system.id}
             </span>
-            
+
             <h2 className="font-oswald text-4xl md:text-6xl font-bold text-white mb-10 uppercase tracking-tighter leading-none">
               {system.name || system.title}
             </h2>
@@ -175,7 +175,7 @@ export function SystemModal({ system, onClose }) {
                     {system.text}
                   </p>
                 </div>
-                
+
                 <div className="p-6 md:p-8 bg-white/[0.02] border border-white/5">
                   <p className="font-mono text-[10px] text-[#D4FF00] uppercase mb-4 tracking-[0.3em]">Operational Bundle</p>
                   <p className="text-sm text-gray-300 leading-relaxed">{system.bundle}</p>
@@ -206,7 +206,7 @@ export function SystemModal({ system, onClose }) {
                 <div className="w-2 h-2 bg-[#D4FF00] rounded-full animate-pulse" />
                 <span className="font-mono text-[9px] text-gray-500 tracking-widest uppercase">Protocol Initialised</span>
               </div>
-              <button 
+              <button
                 onClick={onClose}
                 className="font-oswald text-xs text-[#D4FF00] tracking-[0.4em] uppercase hover:translate-x-2 transition-transform flex items-center gap-4 group"
               >

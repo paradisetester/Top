@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 const CONCLUSION_DATA = {
   text: 'The Goal: To move from being a participant in life to being a 24-Hour Pro. Every choice, every habit, and every meal is a vote for the person you are becoming.',
   ctaText: 'UPGRADE YOUR SYSTEM',
+  ctaLink: '/systems',
 };
 
 export default function AboutConclusion() {
@@ -25,9 +27,11 @@ export default function AboutConclusion() {
             {CONCLUSION_DATA.text}
           </h3>
           
-          <button className="px-10 py-4 bg-[#D4FF00] text-black font-oswald text-xs tracking-[0.2em] font-bold hover:bg-white transition-colors">
-            {CONCLUSION_DATA.ctaText}
-          </button>
+          <Link to={CONCLUSION_DATA.ctaLink}>
+            <button className="px-10 py-4 bg-[#D4FF00] text-black font-oswald text-xs tracking-[0.2em] font-bold hover:bg-white transition-colors">
+              {CONCLUSION_DATA.ctaText}
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>
