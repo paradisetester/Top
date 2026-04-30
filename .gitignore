@@ -22,3 +22,6 @@ Logos
 *.njsproj
 *.sln
 *.sw?
+
+# Theme Scheme
+theme-scheme/
