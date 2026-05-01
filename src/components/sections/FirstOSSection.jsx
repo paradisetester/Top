@@ -77,7 +77,7 @@ export default function FirstOSSection() {
         </p>
       </div>
       {/* <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> */}
-   <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-4 justify-center pb-20">
+   <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-4 justify-center pb-10 md:pb-20">
         {FIRST_OS_DATA.items.map((item, i) => (
           <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleIn} className='w-full md:w-[32%]'>
             <TiltCard 

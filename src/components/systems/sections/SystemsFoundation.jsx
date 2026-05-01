@@ -107,7 +107,7 @@ export default function SystemsFoundation({ onOpenSystem }) {
                   <img 
                     src={FOUNDATION_DATA.image} 
                     alt="Blueprint" 
-                    className="w-full h-full object-cover grayscale opacity-40 group-hover:scale-105 transition-transform duration-1000"
+                    className="object-[75%_60%] w-full h-full object-cover grayscale opacity-40 group-hover:scale-105 transition-transform duration-1000"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
                   
