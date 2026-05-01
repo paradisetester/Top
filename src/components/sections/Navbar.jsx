@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LogoIcon from '../../logos/logo-icon.png';
 
 const NAV_DATA = {
@@ -15,6 +15,7 @@ const NAV_DATA = {
 export default function Navbar({ isLoaded }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === '/';
 
   return (
@@ -63,7 +64,7 @@ export default function Navbar({ isLoaded }) {
         {/* Right Actions Column */}
         <div className="flex items-center justify-end gap-6">
           {/* Desktop ENTER Button */}
-          <button className="relative px-8 py-3 font-oswald text-xs tracking-[0.2em] text-[#D4FF00] border border-[#D4FF00]/30 overflow-hidden group hover:shadow-[0_0_20px_rgba(212,255,0,0.15)] transition-all duration-500 hidden md:block">
+          <button onClick={() => navigate('/contact')} className="relative px-8 py-3 font-oswald text-xs tracking-[0.2em] text-[#D4FF00] border border-[#D4FF00]/30 overflow-hidden group hover:shadow-[0_0_20px_rgba(212,255,0,0.15)] transition-all duration-500 hidden md:block">
             <span className="relative z-10 group-hover:text-black transition-colors duration-300">
               {NAV_DATA.ctaText}
             </span>
@@ -112,7 +113,7 @@ export default function Navbar({ isLoaded }) {
               </a>
             )
           ))}
-          <button className="px-6 py-3 font-oswald text-xs tracking-[0.2em] text-[#D4FF00] border border-[#D4FF00]/30 hover:shadow-[0_0_20px_rgba(212,255,0,0.15)] transition-all duration-300">
+          <button onClick={() => { setMenuOpen(false); navigate('/contact'); }} className="px-6 py-3 font-oswald text-xs tracking-[0.2em] text-[#D4FF00] border border-[#D4FF00]/30 hover:shadow-[0_0_20px_rgba(212,255,0,0.15)] transition-all duration-300">
             {NAV_DATA.ctaText}
           </button>
         </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useMotionValue, useSpring, useTransform, motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 
 /* ─── Animated Counter ─── */
 export function useCounter(target, duration = 2000, startOnView = false) {
@@ -120,9 +121,17 @@ export function EKGLine({ className = '' }) {
     </div>
   );
 }
+
 /* ─── System Detail Modal ─── */
 export function SystemModal({ system, onClose }) {
+  const navigate = useNavigate();
+
   if (!system) return null;
+
+  const handleEnterSystem = () => {
+    onClose();
+    navigate('/contact');
+  };
 
   return (
     <motion.div
@@ -160,7 +169,7 @@ export function SystemModal({ system, onClose }) {
         <div className="flex-1 overflow-y-auto p-8 md:p-16 pt-0 md:pt-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           <div className="relative z-10">
             <span className="font-mono text-[10px] text-[#D4FF00] mb-4 block uppercase tracking-[0.5em]">
-              SYSTEM_PROTOCOL // 0{system.id}
+              SYSTEM 0{system.id}
             </span>
 
             <h2 className="font-oswald text-4xl md:text-6xl font-bold text-white mb-10 uppercase tracking-tighter leading-none">
@@ -170,28 +179,28 @@ export function SystemModal({ system, onClose }) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
               <div className="space-y-8">
                 <div>
-                  <p className="font-mono text-[10px] text-gray-500 uppercase mb-3 tracking-[0.3em]">Full Descriptor</p>
+                  <p className="font-mono text-[10px] text-gray-500 uppercase mb-3 tracking-[0.3em]">About This System</p>
                   <p className="text-gray-400 text-base md:text-lg leading-relaxed font-inter font-light italic">
                     {system.text}
                   </p>
                 </div>
 
                 <div className="p-6 md:p-8 bg-white/[0.02] border border-white/5">
-                  <p className="font-mono text-[10px] text-[#D4FF00] uppercase mb-4 tracking-[0.3em]">Operational Bundle</p>
+                  <p className="font-mono text-[10px] text-[#D4FF00] uppercase mb-4 tracking-[0.3em]">What's Included</p>
                   <p className="text-sm text-gray-300 leading-relaxed">{system.bundle}</p>
                 </div>
               </div>
 
               <div className="space-y-8">
                 <div className="p-6 md:p-8 bg-[#D4FF00]/[0.03] border border-[#D4FF00]/10">
-                  <p className="font-mono text-[10px] text-[#D4FF00] uppercase mb-4 tracking-[0.3em]">The System Hook</p>
+                  <p className="font-mono text-[10px] text-[#D4FF00] uppercase mb-4 tracking-[0.3em]">The Outcome</p>
                   <p className="text-sm text-[#D4FF00]/90 leading-relaxed font-bold italic">
                     "{system.hook}"
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-4">
-                  <p className="font-mono text-[10px] text-gray-500 uppercase tracking-[0.3em]">System Requirements</p>
+                  <p className="font-mono text-[10px] text-gray-500 uppercase tracking-[0.3em]">What We Expect</p>
                   <div className="flex flex-wrap gap-2">
                     {['100% Commitment', 'Zero Friction', 'High Output'].map(tag => (
                       <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 font-mono text-[8px] text-gray-400 uppercase tracking-widest">{tag}</span>
@@ -201,17 +210,25 @@ export function SystemModal({ system, onClose }) {
               </div>
             </div>
 
+            {/* Footer with CTA */}
             <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-              <div className="flex items-center gap-4">
-                <div className="w-2 h-2 bg-[#D4FF00] rounded-full animate-pulse" />
-                <span className="font-mono text-[9px] text-gray-500 tracking-widest uppercase">Protocol Initialised</span>
-              </div>
+              {/* Primary CTA — Enter the System */}
+              <button
+                onClick={handleEnterSystem}
+                className="relative w-full md:w-auto px-10 py-4 bg-[#D4FF00] text-black font-oswald text-sm tracking-[0.2em] uppercase font-bold overflow-hidden group hover:shadow-[0_0_30px_rgba(212,255,0,0.3)] transition-all duration-500 flex items-center justify-center gap-4"
+              >
+                <span className="relative z-10">Enter the System</span>
+                <svg className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </button>
+
               <button
                 onClick={onClose}
-                className="font-oswald text-xs text-[#D4FF00] tracking-[0.4em] uppercase hover:translate-x-2 transition-transform flex items-center gap-4 group"
+                className="font-oswald text-xs text-gray-500 tracking-[0.4em] uppercase hover:text-white transition-colors flex items-center gap-4 group"
               >
-                Close Interface
-                <div className="w-12 h-[1px] bg-[#D4FF00] group-hover:w-20 transition-all" />
+                Close
+                <div className="w-8 h-[1px] bg-gray-600 group-hover:w-12 group-hover:bg-white transition-all" />
               </button>
             </div>
           </div>

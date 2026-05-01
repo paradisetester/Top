@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Navbar from '../sections/Navbar';
 import Footer from '../sections/Footer';
 import { SystemModal } from '../UIComponents';
-import { SystemsHero, SystemsFoundation, SystemsVarsity, SystemsExecutive } from './sections';
+import { SystemsHero, SystemsIntro, SystemsFoundation, SystemsVarsity, SystemsExecutive } from './sections';
 
 export default function SystemsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -57,13 +57,14 @@ export default function SystemsPage() {
                   className="absolute top-0 w-full h-full bg-[#D4FF00]"
                 />
               </div>
-              <span className="font-mono text-[9px] text-[#D4FF00] tracking-[0.4em] uppercase">Initialising Systems...</span>
+              <span className="font-mono text-[9px] text-[#D4FF00] tracking-[0.4em] uppercase">Loading Systems...</span>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       <SystemsHero isLoaded={isLoaded} />
+      <SystemsIntro />
       <SystemsFoundation onOpenSystem={setActiveSystem} />
       <SystemsVarsity onOpenSystem={setActiveSystem} />
       <SystemsExecutive onOpenSystem={setActiveSystem} />
