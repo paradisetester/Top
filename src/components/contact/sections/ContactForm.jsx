@@ -5,9 +5,9 @@ import { MagneticButton } from '../../UIComponents';
 const CONTACT_FORM_DATA = {
   label: '[ INPUT_ ]',
   headingPrimary: 'SUBMIT YOUR',
-  headingAccent: 'OPERATIONAL',
-  headingSuffix: 'REQUEST',
-  body: 'Our team monitors all incoming frequencies. Expect a response within 24 operational hours.',
+  headingAccent: 'REQUEST',
+  // headingSuffix: 'REQUEST',
+  body: 'Our team closely monitors all incoming messages. Expect a response shortly',
   statusLines: ['SECURE CHANNEL ACTIVE', 'ENCRYPTION ENABLED'],
   fields: {
     name: { label: 'Full_Name', placeholder: 'ENTER NAME' },
