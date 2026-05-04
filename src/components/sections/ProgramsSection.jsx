@@ -175,7 +175,7 @@ function SystemCard({ system, i, activeTier }) {
           to={system.link}
           className="btn-primary max-w-[200px] py-4 text-[10px] flex items-center justify-between px-6 relative overflow-hidden"
         >
-          <span className="relative z-10">ACCESS PROTOCOL</span>
+          <span className="relative z-10">ACCESS SYSTEM</span>
           <svg className="w-4 h-4 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeWidth="2" d="M9 5l7 7-7 7" />
           </svg>
