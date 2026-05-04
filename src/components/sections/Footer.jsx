@@ -10,7 +10,7 @@ const FOOTER_DATA = {
     { name: 'CONTACT', path: '/contact' },
   ],
   socialTitle: 'CONNECT',
-  socialLinks: ['Instagram', 'Twitter/X', 'TikTok'],
+  socialLinks: ['Facebook', 'Instagram', 'Youtube'],
   copyright: 'TOP — ALL OR NOTHING',
   version: 'SYSTEM v2.0',
 };
@@ -24,7 +24,7 @@ export default function Footer() {
             <img src={LogoMain} alt="TOP" className="logo-img h-8 mb-6 opacity-80" />
             <p className="text-gray-600 text-sm leading-relaxed max-w-xs">{FOOTER_DATA.tagline}</p>
           </div>
-          
+
 
           <div className="flex gap-15 block md:hidden">
             <div>
@@ -37,12 +37,12 @@ export default function Footer() {
                 ))}
               </div>
             </div>
-          <div>
-            <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">{FOOTER_DATA.socialTitle}</h4>
-            <div className="flex flex-col space-y-3">
-              {FOOTER_DATA.socialLinks.map((s) => (<a key={s} href="#" className="text-gray-600 hover:text-[#D4FF00] text-sm transition-colors">{s}</a>))}
+            <div>
+              <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">{FOOTER_DATA.socialTitle}</h4>
+              <div className="flex flex-col space-y-3">
+                {FOOTER_DATA.socialLinks.map((s) => (<a key={s} href="#" className="text-gray-600 hover:text-[#D4FF00] text-sm transition-colors">{s}</a>))}
+              </div>
             </div>
-          </div>
           </div>
           <div className='hidden md:block'>
             <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">{FOOTER_DATA.navTitle}</h4>
@@ -55,7 +55,7 @@ export default function Footer() {
             </div>
           </div>
 
-            <div className='hidden md:block'>
+          <div className='hidden md:block'>
             <h4 className="font-oswald text-xs tracking-[0.2em] text-gray-400 mb-6">{FOOTER_DATA.socialTitle}</h4>
             <div className="flex flex-col space-y-3">
               {FOOTER_DATA.socialLinks.map((s) => (<a key={s} href="#" className="text-gray-600 hover:text-[#D4FF00] text-sm transition-colors">{s}</a>))}

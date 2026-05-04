@@ -215,7 +215,7 @@ export function SystemModal({ system, onClose }) {
               {/* Primary CTA — Enter the System */}
               <button
                 onClick={handleEnterSystem}
-                className="relative w-full md:w-auto px-10 py-4 bg-[#D4FF00] text-black font-oswald text-sm tracking-[0.2em] uppercase font-bold overflow-hidden group hover:shadow-[0_0_30px_rgba(212,255,0,0.3)] transition-all duration-500 flex items-center justify-center gap-4"
+                className="btn-primary relative w-full md:w-auto px-10 py-4 text-sm overflow-hidden group hover:shadow-[0_0_30px_rgba(212,255,0,0.3)] duration-500 flex items-center justify-center gap-4"
               >
                 <span className="relative z-10">Enter the System</span>
                 <svg className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

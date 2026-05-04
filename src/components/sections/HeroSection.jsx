@@ -53,7 +53,7 @@ export default function HeroSection({ isLoaded }) {
             <p className="text-gray-500 max-w-lg text-base md:text-lg">
               {HERO_DATA.subtitle}
             </p>
-            {/* <MagneticButton className="px-10 py-4 bg-white text-black font-oswald text-xs tracking-[0.2em] hover:bg-[#D4FF00] transition-colors">
+            {/* <MagneticButton className="btn-primary px-10 py-4 text-xs">
               {HERO_DATA.ctaText}
             </MagneticButton> */}
           </motion.div>

@@ -28,7 +28,7 @@ export default function AboutConclusion() {
           </h3>
           
           <Link to={CONCLUSION_DATA.ctaLink}>
-            <button className="px-10 py-4 bg-[#D4FF00] text-black font-oswald text-xs tracking-[0.2em] font-bold hover:bg-white transition-colors">
+            <button className="btn-primary px-10 py-4 text-xs">
               {CONCLUSION_DATA.ctaText}
             </button>
           </Link>

@@ -13,8 +13,8 @@ const FOUNDATION_DATA = {
       id: '01',
       name: 'THE SUMMER EVOLUTION',
       title: 'Summer Evolution Protocol',
-      subtext: 'A total identity reset for the modern student-athlete.',
-      text: 'Stop drifting into the new school year. The Summer Evolution is a high-precision recalibration of your sleep, movement, and social presence. We optimize your internal clock and physical baseline so you arrive on day one with the confidence of a leader and the build of an elite performer.',
+      subtext: 'The definitive 8-week physical transformation and mentorship protocol.',
+      text: 'This is the ultimate reset for the performer who refuses to stay average. The Summer Evolution is a high-intensity protocol engineered to overhaul your physical baseline, maximizing explosive power, lean muscle, and athletic movement. Beyond the training, you are integrated into a mentorship framework designed to sharpen your competitive mindset and social presence. We don’t just change your build; we prepare you to walk back into the new year as a dominant leader with the results to back it up.',
       bundle: 'Sleep optimization, kinetic movement, and the "Social Arrival" (Fashion/Hygiene).',
       hook: 'A total identity reset before the school year starts.'
     },
@@ -72,19 +72,19 @@ export default function SystemsFoundation({ onOpenSystem }) {
                   <ScrambleText text={FOUNDATION_DATA.label} delay={200} />
                 </p>
               </motion.div>
-              
-              <motion.h2 
+
+              <motion.h2
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
                 className="font-oswald text-5xl md:text-7xl font-bold mb-8 uppercase leading-[0.9] tracking-tighter text-white"
               >
-                {FOUNDATION_DATA.heading} <br /> 
+                {FOUNDATION_DATA.heading} <br />
                 <span className="text-[#D4FF00] italic drop-shadow-[0_0_20px_rgba(212,255,0,0.2)]">{FOUNDATION_DATA.headingAccent}</span>
               </motion.h2>
 
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -97,33 +97,33 @@ export default function SystemsFoundation({ onOpenSystem }) {
 
             <div className="flex flex-col lg:flex-row gap-8 items-stretch">
               {/* Visual Side */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 className="w-full lg:w-[38%] flex flex-col"
               >
                 <div className="relative flex-1 min-h-[300px] border border-white/5 overflow-hidden group mb-4">
-                  <img 
-                    src={FOUNDATION_DATA.image} 
-                    alt="Blueprint" 
+                  <img
+                    src={FOUNDATION_DATA.image}
+                    alt="Blueprint"
                     className="object-[75%_60%] w-full h-full object-cover grayscale opacity-40 group-hover:scale-105 transition-transform duration-1000"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-                  
+
                   {/* Decorative Elements */}
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="h-[1px] w-full bg-white/10 relative overflow-hidden">
-                        <motion.div 
-                          initial={{ left: '-100%' }}
-                          whileInView={{ left: '100%' }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                          className="absolute top-0 w-20 h-full bg-[#D4FF00]" 
-                        />
+                      <motion.div
+                        initial={{ left: '-100%' }}
+                        whileInView={{ left: '100%' }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                        className="absolute top-0 w-20 h-full bg-[#D4FF00]"
+                      />
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Age Range Indicator below image */}
                 <div className="flex items-center gap-3">
                   <span className="bg-[#D4FF00] text-black font-oswald text-[10px] px-3 py-1 uppercase font-bold tracking-widest">
@@ -136,7 +136,7 @@ export default function SystemsFoundation({ onOpenSystem }) {
               {/* Protocol Cards */}
               <div className="flex-1 space-y-6">
                 {FOUNDATION_DATA.systems.map((system, idx) => (
-                  <motion.div 
+                  <motion.div
                     key={idx}
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -149,13 +149,13 @@ export default function SystemsFoundation({ onOpenSystem }) {
                     <div className="relative z-10">
                       {/* Card Header */}
                       <div className="flex items-center gap-4 mb-2">
-                         <span className="font-mono text-[9px] text-[#D4FF00] tracking-[0.4em] uppercase">SYSTEM 0{system.id}</span>
+                        <span className="font-mono text-[9px] text-[#D4FF00] tracking-[0.4em] uppercase">SYSTEM 0{system.id}</span>
                       </div>
                       <h4 className="font-oswald text-xl md:text-2xl font-bold text-white uppercase tracking-tight group-hover:text-[#D4FF00] transition-colors mb-3">{system.name}</h4>
-                      
+
                       {/* Subtext — shown on card */}
                       <p className="text-gray-500 text-sm font-inter leading-relaxed mb-5 group-hover:text-gray-400 transition-colors">
-                         {system.subtext}
+                        {system.subtext}
                       </p>
 
                       {/* Explicit CTA Button */}

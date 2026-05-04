@@ -24,7 +24,7 @@ export default function CTASection() {
         <p className="gsap-reveal text-gray-500 text-lg mb-12 max-w-md mx-auto">{CTA_DATA.body}</p>
         <EKGLine className="mb-12 opacity-40" />
         <Link to={CTA_DATA.ctaLink}>
-          <MagneticButton className="px-16 py-3 md:py-6 bg-[#D4FF00] text-black font-oswald text-sm tracking-[0.2em] font-bold hover:bg-white transition-colors">
+          <MagneticButton className="btn-primary px-16 py-3 md:py-6 text-sm">
             {CTA_DATA.ctaText}
           </MagneticButton>
         </Link>

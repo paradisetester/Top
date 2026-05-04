@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { ScrambleText, EKGLine } from '../UIComponents';
 
 const TIERS_DATA = [
@@ -12,18 +13,21 @@ const TIERS_DATA = [
       {
         id: '01',
         name: 'THE SUMMER EVOLUTION',
-        subtext: 'A total identity reset for the modern student-athlete.',
-        descriptor: 'Stop drifting into the new school year. The Summer Evolution is a high-precision recalibration of your sleep, movement, and social presence. We optimize your internal clock and physical baseline so you arrive on day one with the confidence of a leader and the build of an elite performer.'
+        link: '/systems',
+        subtext: 'The definitive 8-week physical transformation and mentorship protocol.',
+        descriptor: 'This is the ultimate reset for the performer who refuses to stay average. The Summer Evolution is a high-intensity protocol engineered to overhaul your physical baseline, maximizing explosive power, lean muscle, and athletic movement. Beyond the training, you are integrated into a mentorship framework designed to sharpen your competitive mindset and social presence. We don’t just change your build; we prepare you to walk back into the new year as a dominant leader with the results to back it up.'
       },
       {
         id: '02',
         name: 'THE TECH-FORWARD SCHOLAR',
+        link: '/systems',
         subtext: 'Cognitive optimization meets the fundamentals of Artificial Intelligence.',
         descriptor: 'High grades are the baseline; high-output efficiency is the advantage. This system engineers your mental focus and memory while installing a comprehensive AI 101 foundation. We move beyond basic apps to teach you the mechanics of prompt engineering, large language models, and automated workflows. You won’t just use technology to finish your schoolwork—you will learn to command the AI tools that are currently reshaping the global economy.'
       },
       {
         id: '03',
         name: 'THE SOCIAL CAPTAIN',
+        link: '/systems',
         subtext: 'Engineering the charisma and composure of a natural lead.',
         descriptor: 'Influence is a skill, not a trait. The Social Captain installs the frameworks for elite communication, conflict resolution, and high-level social standing. From locker room leadership to digital reputation, we provide the protocol for navigating peer groups with authority and calm.'
       }
@@ -38,18 +42,21 @@ const TIERS_DATA = [
       {
         id: '04',
         name: 'THE RECRUITMENT PROTOCOL',
+        link: '/systems',
         subtext: 'Architecting the path to collegiate and professional scouting.',
         descriptor: 'Potential is useless if it isn\'t seen. This system provides the physical peak-performance training and the strategic highlight architecture needed to capture the attention of scouts and recruiters. We don’t just build athletes; we build the most marketable version of your talent.'
       },
       {
         id: '05',
         name: 'THE BIO-HACKER’S EDGE',
+        link: '/systems',
         subtext: 'Extreme physiological management for high-stakes execution.',
         descriptor: 'Learn to command your biology. Never "crack" under the pressure of a championship game or a critical board-level exam. The Bio-Hacker’s Edge combines our Fueling Algorithm with advanced stress-shield protocols like cold exposure and breathwork. This is for the performer who refuses to compromise on execution.'
       },
       {
         id: '06',
         name: 'THE PROFESSIONAL INTERFACE',
+        link: '/systems',
         subtext: 'Mastering the language of wealth, networking, and career strategy.',
         descriptor: 'The transition from amateur to professional starts with how you occupy space. This system develops your public speaking, networking, and early-stage wealth management strategies. It’s designed to make you the most impressive person in any room—regardless of your age.'
       }
@@ -64,18 +71,21 @@ const TIERS_DATA = [
       {
         id: '07',
         name: 'THE CEO ENGINE',
+        link: '/systems',
         subtext: 'High-output performance architecture for the business athlete.',
         descriptor: 'Your company cannot outgrow its leader. The CEO Engine optimizes your physical and mental output for the 14-hour workday. We implement executive nutrition, evening power routines, and biomechanical maintenance to ensure your energy levels match your ambition.'
       },
       {
         id: '08',
         name: 'THE OPERATIONAL ARCHITECT',
+        link: '/systems',
         subtext: 'Engineering the team systems that scale with your vision.',
         descriptor: 'Stop doing the work and start building the machine. This system provides the definitive frameworks for staff onboarding, team culture, and operational scaling. We install the infrastructure that allows your business to function at peak efficiency while you focus on high-level strategy.'
       },
       {
         id: '09',
         name: 'THE MASTER LEGACY SYSTEM',
+        link: '/systems',
         subtext: 'Permanent peak performance and long-term vitality design.',
         descriptor: 'This is the terminal system for those who plan to win for decades. The Master Legacy System integrates advanced longevity protocols with high-stakes mental self-talk. We engineer a 95-year plan that aligns your physical health with your net worth, ensuring you stay at the top of the mountain once you’ve arrived.'
       }
@@ -161,16 +171,16 @@ function SystemCard({ system, i, activeTier }) {
           {system.descriptor}
         </p>
 
-        <button
-          onClick={() => alert('System details being decrypted...')}
-          className="max-w-[200px] py-4 border border-white/10 text-gray-300 font-oswald text-[10px] tracking-[0.2em] flex items-center justify-between px-6 group-hover:bg-[#D4FF00] group-hover:text-black group-hover:border-[#D4FF00] transition-all relative overflow-hidden"
+        <Link
+          to={system.link}
+          className="btn-primary max-w-[200px] py-4 text-[10px] flex items-center justify-between px-6 relative overflow-hidden"
         >
           <span className="relative z-10">ACCESS PROTOCOL</span>
           <svg className="w-4 h-4 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeWidth="2" d="M9 5l7 7-7 7" />
           </svg>
           <div className="absolute inset-0 bg-[#D4FF00] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-        </button>
+        </Link>
       </div>
 
       {/* Corner Accents */}
@@ -206,8 +216,8 @@ export default function ProgramsSection() {
               key={idx}
               onClick={() => setActiveTier(idx)}
               className={`flex-1 group relative p-8 border transition-all duration-500 text-left overflow-hidden ${activeTier === idx
-                  ? 'border-[#D4FF00] bg-[#D4FF00]/5'
-                  : 'border-white/10 hover:border-white/30 bg-[#0A0A0A]'
+                ? 'border-[#D4FF00] bg-[#D4FF00]/5'
+                : 'border-white/10 hover:border-white/30 bg-[#0A0A0A]'
                 }`}
             >
               <div className="relative z-10">

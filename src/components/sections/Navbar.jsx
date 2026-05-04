@@ -64,11 +64,8 @@ export default function Navbar({ isLoaded }) {
         {/* Right Actions Column */}
         <div className="flex items-center justify-end gap-6">
           {/* Desktop ENTER Button */}
-          <button onClick={() => navigate('/contact')} className="relative px-8 py-3 font-oswald text-xs tracking-[0.2em] text-[#D4FF00] border border-[#D4FF00]/30 overflow-hidden group hover:shadow-[0_0_20px_rgba(212,255,0,0.15)] transition-all duration-500 hidden md:block">
-            <span className="relative z-10 group-hover:text-black transition-colors duration-300">
-              {NAV_DATA.ctaText}
-            </span>
-            <div className="absolute inset-0 bg-[#D4FF00] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+          <button onClick={() => navigate('/contact')} className="btn-primary px-8 py-3 text-xs hidden md:block">
+            {NAV_DATA.ctaText}
           </button>
 
           {/* Mobile Hamburger */}
@@ -89,7 +86,7 @@ export default function Navbar({ isLoaded }) {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-20 left-0 w-full bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-white/5 z-40 transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}
+        className={`md:hidden fixed top-20 left-0 w-full bg-transparent border-t border-white/5 z-40 transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}
       >
         <div className="flex flex-col items-center py-6 space-y-6 font-oswald text-lg text-gray-300">
           {NAV_DATA.links.map((l) => (
@@ -113,7 +110,7 @@ export default function Navbar({ isLoaded }) {
               </a>
             )
           ))}
-          <button onClick={() => { setMenuOpen(false); navigate('/contact'); }} className="px-6 py-3 font-oswald text-xs tracking-[0.2em] text-[#D4FF00] border border-[#D4FF00]/30 hover:shadow-[0_0_20px_rgba(212,255,0,0.15)] transition-all duration-300">
+          <button onClick={() => { setMenuOpen(false); navigate('/contact'); }} className="btn-primary px-6 py-3 text-xs">
             {NAV_DATA.ctaText}
           </button>
         </div>
