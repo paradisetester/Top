@@ -126,7 +126,7 @@ export default function SystemsFoundation({ onOpenSystem }) {
 
                 {/* Age Range Indicator below image */}
                 <div className="flex items-center gap-3">
-                  <span className="bg-[#D4FF00] text-black font-oswald text-[10px] px-3 py-1 uppercase font-bold tracking-widest">
+                  <span className="text-[#D4FF00] font-oswald text-[11px] uppercase font-bold tracking-widest">
                     {FOUNDATION_DATA.ageRange}
                   </span>
                   <span className="font-mono text-[9px] text-gray-600 uppercase tracking-widest">Target Age Group</span>

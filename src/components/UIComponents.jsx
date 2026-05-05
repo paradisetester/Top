@@ -154,64 +154,44 @@ export function SystemModal({ system, onClose }) {
         <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#D4FF00] z-20" />
         <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4FF00] z-20" />
 
-        {/* Header with Close Button */}
-        <div className="sticky top-0 right-0 p-6 md:p-8 flex justify-end z-30 pointer-events-none">
-          <button
-            onClick={onClose}
-            className="pointer-events-auto p-2 bg-black/50 border border-white/10 text-gray-500 hover:text-white transition-colors"
-          >
-            <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="square" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-6 right-6 md:top-8 md:right-8 z-30 p-2 bg-black/50 border border-white/10 text-gray-500 hover:text-white transition-colors"
+        >
+          <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="square" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
 
-        <div className="flex-1 overflow-y-auto p-8 md:p-16 pt-0 md:pt-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex-1 overflow-y-auto p-6 md:p-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           <div className="relative z-10">
-            <span className="font-mono text-[10px] text-[#D4FF00] mb-4 block uppercase tracking-[0.5em]">
+            <span className="font-mono text-[10px] text-[#D4FF00] mb-3 block uppercase tracking-[0.5em]">
               SYSTEM 0{system.id}
             </span>
 
-            <h2 className="font-oswald text-4xl md:text-6xl font-bold text-white mb-10 uppercase tracking-tighter leading-none">
+            <h2 className="font-oswald text-4xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tighter leading-none">
               {system.name || system.title}
             </h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
-              <div className="space-y-8">
-                <div>
-                  <p className="font-mono text-[10px] text-gray-500 uppercase mb-3 tracking-[0.3em]">About This System</p>
-                  <p className="text-gray-400 text-base md:text-lg leading-relaxed font-inter font-light italic">
-                    {system.text}
-                  </p>
-                </div>
+            <div className="space-y-6">
+              <div>
+                <p className="font-mono text-[10px] text-gray-500 uppercase mb-2 tracking-[0.3em]">About This System</p>
+                <p className="text-gray-400 text-base md:text-lg leading-relaxed font-inter font-light italic">
+                  {system.text}
+                </p>
+              </div>
 
-                <div className="p-6 md:p-8 bg-white/[0.02] border border-white/5">
-                  <p className="font-mono text-[10px] text-[#D4FF00] uppercase mb-4 tracking-[0.3em]">What's Included</p>
+              {system.bundle && (
+                <div className="p-5 md:p-6 bg-white/[0.02] border border-white/5">
+                  <p className="font-mono text-[10px] text-[#D4FF00] uppercase mb-3 tracking-[0.3em]">What's Included</p>
                   <p className="text-sm text-gray-300 leading-relaxed">{system.bundle}</p>
                 </div>
-              </div>
-
-              <div className="space-y-8">
-                <div className="p-6 md:p-8 bg-[#D4FF00]/[0.03] border border-[#D4FF00]/10">
-                  <p className="font-mono text-[10px] text-[#D4FF00] uppercase mb-4 tracking-[0.3em]">The Outcome</p>
-                  <p className="text-sm text-[#D4FF00]/90 leading-relaxed font-bold italic">
-                    "{system.hook}"
-                  </p>
-                </div>
-
-                <div className="flex flex-col gap-4">
-                  <p className="font-mono text-[10px] text-gray-500 uppercase tracking-[0.3em]">What We Expect</p>
-                  <div className="flex flex-wrap gap-2">
-                    {['100% Commitment', 'Zero Friction', 'High Output'].map(tag => (
-                      <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 font-mono text-[8px] text-gray-400 uppercase tracking-widest">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
 
             {/* Footer with CTA */}
-            <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="mt-8 flex justify-start items-center">
               {/* Primary CTA — Enter the System */}
               <button
                 onClick={handleEnterSystem}
@@ -221,14 +201,6 @@ export function SystemModal({ system, onClose }) {
                 <svg className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </button>
-
-              <button
-                onClick={onClose}
-                className="font-oswald text-xs text-gray-500 tracking-[0.4em] uppercase hover:text-white transition-colors flex items-center gap-4 group"
-              >
-                Close
-                <div className="w-8 h-[1px] bg-gray-600 group-hover:w-12 group-hover:bg-white transition-all" />
               </button>
             </div>
           </div>

@@ -72,7 +72,7 @@ export default function SystemsExecutive({ onOpenSystem }) {
             </h2>
             
             <div className="flex items-center gap-4 mb-8">
-              <span className="bg-[#D4FF00] text-black font-oswald text-xs px-4 py-1 uppercase font-bold tracking-widest">
+              <span className="text-[#D4FF00] font-oswald text-xs uppercase font-bold tracking-widest">
                 {EXECUTIVE_DATA.ageRange}
               </span>
               <div className="h-[1px] w-24 bg-white/10" />

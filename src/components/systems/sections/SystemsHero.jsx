@@ -94,7 +94,7 @@ export default function SystemsHero({ isLoaded }) {
                         {tier.age}
                       </span>
                     </div>
-                    <svg className="w-4 h-4 text-gray-1000 group-hover:text-[#D4FF00] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-[#D4FF00] group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeWidth="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                     </svg>
                   </div>

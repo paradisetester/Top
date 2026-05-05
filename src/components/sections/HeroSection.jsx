@@ -3,7 +3,11 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { Particles, MagneticButton } from '../UIComponents';
 
 const HERO_DATA = {
-  images: ['/hero-sprint.png', '/hero-rope-pull.jpg', '/hero-chart.png'],
+  images: [
+    { src: '/hero-sprint.png', pos: 'object-center' },
+    { src: '/hero-rope-pull.jpg', pos: 'object-top' },
+    { src: '/hero-chart.png', pos: 'object-center' }
+  ],
   carouselInterval: 4000,
   statusLabel: 'TRAINING OPTIMIZATION PROGRAM',
   title: 'ALL OR NOTHING',
@@ -27,13 +31,13 @@ export default function HeroSection({ isLoaded }) {
   }, [isLoaded]);
 
   return (
-    <section className="relative h-screen flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden">
+    <section className="relative h-screen md:top-20 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
       <motion.div style={{ scale: bgScale }} className="absolute inset-0 z-0 bg-[#0A0A0A]">
         <AnimatePresence mode="sync">
-          <motion.img key={heroIndex} src={HERO_DATA.images[heroIndex]} alt="Athlete preparing"
+          <motion.img key={heroIndex} src={HERO_DATA.images[heroIndex].src} alt="Athlete preparing"
             initial={{ opacity: 0, scale: 1.08 }} animate={{ opacity: 0.3, scale: 1 }} exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: 'easeInOut' }}
-            className="absolute inset-0 w-full h-full object-cover" />
+            className={`absolute inset-0 w-full h-full object-cover ${HERO_DATA.images[heroIndex].pos}`} />
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/60 via-[#0A0A0A]/20 to-[#0A0A0A] z-10" />
       </motion.div>
