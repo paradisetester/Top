@@ -4,7 +4,7 @@ const MISSION_DATA = {
   label: '[ 01 — THE PROTOCOL ]',
   heading: "WE DON'T SELL TRAINING.",
   headingLine2: 'WE OPTIMIZE YOUR OUTPUT.',
-  body: "TOP is not a workout program, but a series of integrated systems geared toward one result: your optimal self. It's a complete performance architecture for your mind, body, and social identity - designed by pro athletes and psychologists for the next generation of elite performers. From your first day of implementation to your defining win, we engineer the systems that make you unstoppable.",
+  body: "TOP is not merely a workout program, but a series of integrated systems geared toward one result: your optimal self. It's a complete performance architecture for your mind, body, and social identity - designed by pro athletes and psychologists for the next generation of elite performers. From your first day of implementation to your defining win, we engineer the systems that make you unstoppable.",
 };
 
 export default function MissionSection() {

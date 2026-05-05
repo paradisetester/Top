@@ -23,7 +23,7 @@ export default function StatsSection() {
   return (
     <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={fadeUp}
       onViewportEnter={() => { starters.forEach((s) => s()); }}
-      className="py-16 px-6 bg-[#0e0e0e] border-b border-white/5">
+      className="relative py-16 px-6 bg-[#0e0e0e] border-b border-white/5">
       <div className="max-w-5xl mx-auto grid grid-cols-3 gap-8 text-center">
         {STATS_DATA.map((s, i) => (
           <div key={i}>
