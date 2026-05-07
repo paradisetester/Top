@@ -70,7 +70,7 @@ export default function FirstOSSection() {
   return (
     <section className="pt-20 pb-10 sm:pt-20 sm:pb-10 lg:pt-30 lg:pb-16 px-6 md:px-12 bg-[#0e0e0e] relative overflow-hidden">
       <div className="max-w-6xl mx-auto mb-15 md:mb-20">
-        <p className="gsap-reveal font-mono text-[#D4FF00]/50 mb-4 text-[12px] text-uppercase tracking-[0.2em]"><ScrambleText text={FIRST_OS_DATA.label} delay={200} /></p>
+        <p className="gsap-reveal font-mono text-[#D4FF00] mb-4 text-[12px] text-uppercase tracking-[0.2em]"><ScrambleText text={FIRST_OS_DATA.label} delay={200} /></p>
         <h2 className="gsap-reveal font-oswald text-4xl sn:text-5xl md:text-6xl font-bold mb-6">{FIRST_OS_DATA.heading}<br className="md:inline" />{FIRST_OS_DATA.headingLine2}</h2>
         <p className="gsap-reveal text-gray-400 max-w-xl text-lg leading-relaxed">
           {FIRST_OS_DATA.subtitle}
