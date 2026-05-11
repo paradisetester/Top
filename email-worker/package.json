@@ -7,7 +7,7 @@
     "deploy": "wrangler deploy"
   },
   "dependencies": {
-    "worker-mailer": "^0.5.0"
+    "worker-mailer": "^1.2.1"
   },
   "devDependencies": {
     "wrangler": "^4.0.0"
