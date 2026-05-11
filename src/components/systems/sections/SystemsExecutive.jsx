@@ -8,11 +8,15 @@ const EXECUTIVE_DATA = {
   valueProp: "The Performance OS for global market domination.",
   ageRange: 'AGES 22–35+',
   image: '/systems_executive.png',
+  shopifyUrl: 'https://top-ae.com',
   systems: [
     {
       id: '07',
       name: 'THE CEO ENGINE',
       title: 'High-Output Architecture',
+      link: '/products/ceo-engine',
+      available: false,
+      opensDate: 'Opens 9/29/26',
       subtext: 'High-output performance architecture for the business athlete.',
       text: 'Your company cannot outgrow its leader. The CEO Engine optimizes your physical and mental output for the 14-hour workday. We implement executive nutrition, evening power routines, and biomechanical maintenance to ensure your energy levels match your ambition.',
       bundle: 'Morning/Evening Power Routines + Executive Nutrition + Bio-Mechanical Maintenance.',
@@ -22,6 +26,9 @@ const EXECUTIVE_DATA = {
       id: '08',
       name: 'THE OPERATIONAL ARCHITECT',
       title: 'Scaling Team Frameworks',
+      link: '/products/operational-architect',
+      available: false,
+      opensDate: 'Opens 9/29/26',
       subtext: 'Engineering the team systems that scale with your vision.',
       text: 'Stop doing the work and start building the machine. This system provides the definitive frameworks for staff onboarding, team culture, and operational scaling. We install the infrastructure that allows your business to function at peak efficiency while you focus on high-level strategy.',
       bundle: 'Onboarding Systems + Staff Management + Team Culture Frameworks.',
@@ -31,6 +38,9 @@ const EXECUTIVE_DATA = {
       id: '09',
       name: 'THE MASTER LEGACY SYSTEM',
       title: 'Vitality & Wealth Integration',
+      link: '/products/master-legacy-system',
+      available: false,
+      opensDate: 'Opens 9/29/26',
       subtext: 'Permanent peak performance and long-term vitality design.',
       text: 'This is the terminal system for those who plan to win for decades. The Master Legacy System integrates advanced longevity protocols with high-stakes mental self-talk. We engineer a 95-year plan that aligns your physical health with your net worth, ensuring you stay at the top of the mountain once you’ve arrived.',
       bundle: 'Advanced Longevity (95-year plan) + High-Stakes Mental Self-Talk + Wealth/Physical Health Integration.',
@@ -108,7 +118,7 @@ export default function SystemsExecutive({ onOpenSystem }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
-              onClick={() => onOpenSystem(system)}
+              onClick={() => onOpenSystem({ ...system, shopifyUrl: EXECUTIVE_DATA.shopifyUrl })}
               className="group relative p-6 md:p-8 bg-[#0A0A0A] border border-white/5 hover:border-[#D4FF00]/40 transition-all duration-500 cursor-pointer overflow-hidden flex flex-col"
             >
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#D4FF00]/[0.02] to-transparent h-full -translate-y-full group-hover:translate-y-full transition-transform duration-1000 pointer-events-none" />

@@ -8,11 +8,15 @@ const VARSITY_DATA = {
   description: 'The professional bridge to competitive dominance. Turning potential into a precision-engineered machine that refuses to crack under pressure.',
   ageRange: 'AGES 16–21',
   image: '/systems_varsity.png',
+  shopifyUrl: 'https://top-ae.com',
   systems: [
     {
       id: '04',
       name: 'THE RECRUITMENT PROTOCOL',
       title: 'Architecting the Path',
+      link: '/products/recruitment-protocol',
+      available: false,
+      opensDate: 'Opens 9/29/26',
       subtext: 'Architecting the path to collegiate and professional scouting.',
       text: 'Potential is useless if it isn\'t seen. This system provides the physical peak-performance training and the strategic highlight architecture needed to capture the attention of scouts and recruiters. We don’t just build athletes; we build the most marketable version of your talent.',
       bundle: 'Sports-specific physical peaks + Resume/Highlight architecture + Scholarship strategy.',
@@ -22,6 +26,9 @@ const VARSITY_DATA = {
       id: '05',
       name: 'THE BIO-HACKER\u2019S EDGE',
       title: 'Extreme Physiological Management',
+      link: '/products/bio-hackers-edge',
+      available: false,
+      opensDate: 'Opens 9/29/26',
       subtext: 'Extreme physiological management for high-stakes execution.',
       text: 'Learn to command your biology. The Bio-Hacker\u2019s Edge combines our Fueling Algorithm with advanced stress-shield protocols like cold exposure and breathwork. This is for the performer who refuses to crack under the pressure of a championship game or a critical board-level exam.',
       bundle: 'The Fueling Algorithm (Nutrition) + The Stress Shield (Cold/Breathwork/Pressure management).',
@@ -31,6 +38,9 @@ const VARSITY_DATA = {
       id: '06',
       name: 'THE PROFESSIONAL INTERFACE',
       title: 'Wealth & Career Strategy',
+      link: '/products/professional-interface',
+      available: false,
+      opensDate: 'Opens 9/29/26',
       subtext: 'Mastering the language of wealth, networking, and career strategy.',
       text: 'The transition from amateur to professional starts with how you occupy space. This system develops your public speaking, networking, and early-stage wealth management strategies. It’s designed to make you the most impressive person in any room—regardless of your age.',
       bundle: 'Public Speaking + Networking + Early Career Strategy/Wealth Basics.',
@@ -140,7 +150,7 @@ export default function SystemsVarsity({ onOpenSystem }) {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4 + (idx * 0.15) }}
-                    onClick={() => onOpenSystem(system)}
+                    onClick={() => onOpenSystem({ ...system, shopifyUrl: VARSITY_DATA.shopifyUrl })}
                     className="group relative bg-[#0A0A0A] border border-white/5 p-6 md:p-8 hover:border-[#D4FF00]/40 transition-all duration-500 cursor-pointer overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#D4FF00]/[0.02] to-transparent h-full -translate-y-full group-hover:translate-y-full transition-transform duration-1000 pointer-events-none" />

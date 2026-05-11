@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useMotionValue, useSpring, useTransform, motion } from 'motion/react';
-import { useNavigate } from 'react-router-dom';
 
 /* ─── Animated Counter ─── */
 export function useCounter(target, duration = 2000, startOnView = false) {
@@ -124,13 +123,13 @@ export function EKGLine({ className = '' }) {
 
 /* ─── System Detail Modal ─── */
 export function SystemModal({ system, onClose }) {
-  const navigate = useNavigate();
-
   if (!system) return null;
 
   const handleEnterSystem = () => {
-    onClose();
-    navigate('/contact');
+    const url = system.shopifyUrl && system.link
+      ? `${system.shopifyUrl}${system.link}`
+      : '/contact';
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -192,16 +191,21 @@ export function SystemModal({ system, onClose }) {
 
             {/* Footer with CTA */}
             <div className="mt-8 flex justify-start items-center">
-              {/* Primary CTA — Enter the System */}
-              <button
-                onClick={handleEnterSystem}
-                className="btn-primary relative w-full md:w-auto px-10 py-4 text-sm overflow-hidden group hover:shadow-[0_0_30px_rgba(212,255,0,0.3)] duration-500 flex items-center justify-center gap-4"
-              >
-                <span className="relative z-10">Enter the System</span>
-                <svg className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </button>
+              {system.available ? (
+                <button
+                  onClick={handleEnterSystem}
+                  className="btn-primary relative w-full md:w-auto px-10 py-4 text-sm overflow-hidden group hover:shadow-[0_0_30px_rgba(212,255,0,0.3)] duration-500 flex items-center justify-center gap-4"
+                >
+                  <span className="relative z-10">Enter the System</span>
+                  <svg className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </button>
+              ) : (
+                <span className="relative w-full md:w-auto px-10 py-4 text-sm border border-white/10 text-gray-500 cursor-not-allowed font-oswald tracking-[0.15em] uppercase flex items-center justify-center">
+                  {system.opensDate}
+                </span>
+              )}
             </div>
           </div>
         </div>

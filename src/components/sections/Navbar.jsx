@@ -9,7 +9,8 @@ const NAV_DATA = {
     { name: 'SYSTEMS', path: '/systems' },
     { name: 'CONTACT', path: '/contact' },
   ],
-  ctaText: 'ENTER',
+  ctaText: 'SHOP GEAR',
+  ctaUrl: 'https://top-ae.com',
 };
 
 export default function Navbar({ isLoaded }) {
@@ -63,10 +64,10 @@ export default function Navbar({ isLoaded }) {
 
         {/* Right Actions Column */}
         <div className="flex items-center justify-end gap-6">
-          {/* Desktop ENTER Button */}
-          <button onClick={() => navigate('/contact')} className="btn-primary px-8 py-3 text-xs hidden md:block">
+          {/* Desktop SHOP GEAR Button */}
+          <a href={NAV_DATA.ctaUrl} target="_blank" rel="noopener noreferrer" className="btn-primary px-8 py-3 text-xs hidden md:block">
             {NAV_DATA.ctaText}
-          </button>
+          </a>
 
           {/* Mobile Hamburger */}
           <button
@@ -110,9 +111,9 @@ export default function Navbar({ isLoaded }) {
               </a>
             )
           ))}
-          <button onClick={() => { setMenuOpen(false); navigate('/contact'); }} className="btn-primary px-6 py-3 text-xs">
+          <a href={NAV_DATA.ctaUrl} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="btn-primary px-6 py-3 text-xs">
             {NAV_DATA.ctaText}
-          </button>
+          </a>
         </div>
       </div>
     </motion.nav>

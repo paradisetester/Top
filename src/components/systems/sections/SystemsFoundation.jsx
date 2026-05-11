@@ -8,13 +8,17 @@ const FOUNDATION_DATA = {
   ageRange: 'AGES 12–15',
   valueProp: "Building the Ultimate Student-Athlete & Future Leader.",
   image: '/systems_foundation.png',
+  shopifyUrl: 'https://top-ae.com',
   systems: [
     {
       id: '01',
-      name: 'THE SUMMER EVOLUTION',
-      title: 'Summer Evolution Protocol',
+      name: 'THE GAME CHANGER',
+      title: 'GAME CHANGER Protocol',
+      link: '/products/summer-evolution',
+      available: true,
+      opensDate: 'Opens 9/29/26',
       subtext: 'The definitive 8-week physical transformation and mentorship protocol.',
-      text: 'This is the ultimate reset for the performer who refuses to stay average. The Summer Evolution is a high-intensity protocol engineered to overhaul your physical baseline, maximizing explosive power, lean muscle, and athletic movement. Beyond the training, you are integrated into a mentorship framework designed to sharpen your competitive mindset and social presence. We don’t just change your build; we prepare you to walk back into the new year as a dominant leader with the results to back it up.',
+      text: 'This is the ultimate reset for the performer who refuses to stay average. The Game Changer is a high-intensity protocol engineered to overhaul your physical baseline, maximizing explosive power, lean muscle, and athletic movement. Beyond the training, you are integrated into a mentorship framework designed to sharpen your competitive mindset and social presence. We don’t just change your build; we prepare you to walk back into the new year as a dominant leader with the results to back it up.',
       bundle: 'Sleep optimization, kinetic movement, and the "Social Arrival" (Fashion/Hygiene).',
       hook: 'A total identity reset before the school year starts.'
     },
@@ -22,6 +26,9 @@ const FOUNDATION_DATA = {
       id: '02',
       name: 'THE TECH-FORWARD SCHOLAR',
       title: 'Cognitive & AI Optimization',
+      link: '/products/tech-forward-scholar',
+      available: false,
+      opensDate: 'Opens 9/29/26',
       subtext: 'Cognitive optimization meets the fundamentals of Artificial Intelligence.',
       text: 'High grades are the baseline; high-output efficiency is the advantage. This system engineers your mental focus and memory while installing a comprehensive AI 101 foundation. We move beyond basic apps to teach you the mechanics of prompt engineering, large language models, and automated workflows. You won’t just use technology to finish your schoolwork—you will learn to command the AI tools that are currently reshaping the global economy.',
       bundle: 'Focus/Memory systems (The Academic Engine) + Intro to Cutting-Edge Tech.',
@@ -31,6 +38,9 @@ const FOUNDATION_DATA = {
       id: '03',
       name: 'THE SOCIAL CAPTAIN',
       title: 'Leadership & Charisma Framework',
+      link: '/products/social-captain',
+      available: false,
+      opensDate: 'Opens 9/29/26',
       subtext: 'Engineering the charisma and composure of a natural lead.',
       text: 'Influence is a skill, not a trait. The Social Captain installs the frameworks for elite communication, conflict resolution, and high-level social standing. From locker room leadership to digital reputation, we provide the protocol for navigating peer groups with authority and calm.',
       bundle: 'Charisma/Leadership + Media Literacy + Conflict Resolution.',
@@ -142,7 +152,7 @@ export default function SystemsFoundation({ onOpenSystem }) {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4 + (idx * 0.15) }}
-                    onClick={() => onOpenSystem(system)}
+                    onClick={() => onOpenSystem({ ...system, shopifyUrl: FOUNDATION_DATA.shopifyUrl })}
                     className="group relative bg-[#0A0A0A] border border-white/5 p-6 md:p-8 hover:border-[#D4FF00]/40 transition-all duration-500 cursor-pointer overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#D4FF00]/[0.02] to-transparent h-full -translate-y-full group-hover:translate-y-full transition-transform duration-1000 pointer-events-none" />

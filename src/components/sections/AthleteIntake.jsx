@@ -6,28 +6,32 @@ const INTAKE_DATA = {
   heading: 'DETERMINE YOUR TIER',
   subtitle: "Enter your metrics. We'll match you to the right operating system.",
   submitText: 'GET RESULTS →',
-  shopifyBase: 'https://your-store.myshopify.com/collections/',
+  shopifyBase: 'https://top-ae.com',
   fields: [
     { key: 'height_ft', label: 'HEIGHT (FT)', placeholder: '5', type: 'number' },
     { key: 'height_in', label: 'HEIGHT (IN)', placeholder: '8', type: 'number' },
     { key: 'weight', label: 'WEIGHT (LBS)', placeholder: '145', type: 'number' },
   ],
   levels: [
-    { value: '', label: 'SELECT' },
-    { value: 'tier1', label: 'TIER 1' },
-    { value: 'varsity', label: 'VARSITY' },
-    { value: 'elite', label: 'ELITE' },
+    { value: 'foundation', label: 'AGE/ 12 TO 15' },
+    { value: 'varsity', label: 'AGE/ 16 TO 21' },
+    { value: 'elite', label: 'AGE/ 22 TO 35' },
   ],
-  routes: { junior: 'junior-programs', varsity: 'varsity-programs', elite: 'elite-programs' },
+  routes: {
+    foundation: '/products/summer-evolution',
+    varsity: '/products/varsity-program',
+    elite: '/products/elite-program',
+  },
 };
 
 export default function AthleteIntake() {
-  const [intake, setIntake] = useState({ height_ft: '', height_in: '', weight: '', level: '' });
+  const [intake, setIntake] = useState({ height_ft: '', height_in: '', weight: '', level: 'foundation' });
 
   const handleIntakeSubmit = () => {
-    /* TODO: Route to Shopify product page based on intake.level */
-    const url = INTAKE_DATA.routes[intake.level] || 'all';
-    alert(`This would route to: ${INTAKE_DATA.shopifyBase}${url}\n\nConnect your Shopify store to enable this.`);
+    const route = INTAKE_DATA.routes[intake.level];
+    if (route) {
+      window.open(`${INTAKE_DATA.shopifyBase}${route}`, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
