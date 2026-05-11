@@ -26,11 +26,32 @@ export function ContactForm() {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const [submitState, setSubmitState] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add submission logic here
-    alert('Operational request received. Initializing contact protocol.');
+    setSubmitState('loading');
+    
+    // NOTE: Replace this URL with your deployed Cloudflare Worker URL
+    const WORKER_URL = 'https://top-email-worker.qa-paradisetechsoft.workers.dev';
+    
+    try {
+      const res = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      if (!res.ok) throw new Error('Submission failed');
+      
+      setSubmitState('success');
+      setFormData({ name: '', email: '', subject: '', message: '' }); // Clear form
+      setTimeout(() => setSubmitState('idle'), 5000); // Reset button after 5s
+    } catch (error) {
+      console.error(error);
+      setSubmitState('error');
+      setTimeout(() => setSubmitState('idle'), 5000); // Reset button after 5s
+    }
   };
 
   const handleChange = (e) => {
@@ -81,6 +102,7 @@ export function ContactForm() {
                       required
                       onChange={handleChange}
                       placeholder={CONTACT_FORM_DATA.fields.name.placeholder}
+                      value={formData.name}
                       className="w-full bg-white/[0.03] border border-white/10 px-6 py-4 text-white font-mono text-xs focus:border-[#D4FF00] outline-none transition-colors"
                     />
                   </div>
@@ -92,6 +114,7 @@ export function ContactForm() {
                       required
                       onChange={handleChange}
                       placeholder={CONTACT_FORM_DATA.fields.email.placeholder}
+                      value={formData.email}
                       className="w-full bg-white/[0.03] border border-white/10 px-6 py-4 text-white font-mono text-xs focus:border-[#D4FF00] outline-none transition-colors"
                     />
                   </div>
@@ -105,6 +128,7 @@ export function ContactForm() {
                     required
                     onChange={handleChange}
                     placeholder={CONTACT_FORM_DATA.fields.subject.placeholder}
+                    value={formData.subject}
                     className="w-full bg-white/[0.03] border border-white/10 px-6 py-4 text-white font-mono text-xs focus:border-[#D4FF00] outline-none transition-colors"
                   />
                 </div>
@@ -117,16 +141,32 @@ export function ContactForm() {
                     rows="6"
                     onChange={handleChange}
                     placeholder={CONTACT_FORM_DATA.fields.message.placeholder}
+                    value={formData.message}
                     className="w-full bg-white/[0.03] border border-white/10 px-6 py-4 text-white font-mono text-xs focus:border-[#D4FF00] outline-none transition-colors resize-none"
                   />
                 </div>
 
                 <div className="pt-4">
-                  <MagneticButton type="submit" className="btn-primary px-12 py-5 text-sm tracking-[0.3em] flex items-center justify-center gap-6 group">
-                    <span>{CONTACT_FORM_DATA.submitText}</span>
-                    <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7-7 7M3 12h18" />
-                    </svg>
+                  <MagneticButton 
+                    type="submit" 
+                    disabled={submitState === 'loading' || submitState === 'success'}
+                    className={`px-12 py-5 text-sm tracking-[0.3em] flex items-center justify-center gap-6 group transition-all duration-300 ${
+                      submitState === 'success' ? 'bg-[#D4FF00] text-black border-[#D4FF00]' : 
+                      submitState === 'error' ? 'bg-red-500/20 text-red-500 border-red-500/50' : 
+                      'btn-primary'
+                    }`}
+                  >
+                    <span>
+                      {submitState === 'loading' ? 'TRANSMITTING...' : 
+                       submitState === 'success' ? 'REQUEST RECEIVED' : 
+                       submitState === 'error' ? 'TRANSMISSION FAILED - RETRY' : 
+                       CONTACT_FORM_DATA.submitText}
+                    </span>
+                    {submitState === 'idle' && (
+                      <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7-7 7M3 12h18" />
+                      </svg>
+                    )}
                   </MagneticButton>
                 </div>
               </form>
