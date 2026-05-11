@@ -26,6 +26,13 @@ export default {
     }
 
     try {
+      if (!env.SMTP_USERNAME || !env.SMTP_PASSWORD) {
+        return new Response(JSON.stringify({ error: 'Configuration Error', details: 'SMTP_USERNAME or SMTP_PASSWORD is not set in Cloudflare Secrets.' }), {
+          status: 500,
+          headers: { ...corsHeaders(allowOrigin), 'Content-Type': 'application/json' },
+        });
+      }
+
       const body = await request.json();
       const { name, email, subject, message } = body;
 
@@ -41,7 +48,7 @@ export default {
         host: env.SMTP_HOST,
         port: Number(env.SMTP_PORT),
         secure: Number(env.SMTP_PORT) === 465, // True for 465, usually false for 587
-        authType: 'login', // SiteGround usually accepts 'login' or 'plain'
+        authType: 'plain', // Updated to 'plain' as it's the most common default
         credentials: {
           username: env.SMTP_USERNAME,
           password: env.SMTP_PASSWORD,
